@@ -101,37 +101,20 @@ def getKeyPointsHTML(key):
         return txt
 
 def run_pandoc(content, bibliography=""):
-    TempFileMD = tempfile.NamedTemporaryFile(mode='w+t', encoding='utf-8')
-    TempFileHTML = tempfile.NamedTemporaryFile(mode='w+t', encoding='utf-8')
-
-    print("Writing temporary Markdown file")
-    TempFileMD.write(content)
-
     if bibliography:
         bib = ["--bibliography={}".format(bibliography)]
     else:
         bib = []
 
-    print("Running Pandoc")
-    subprocess.call(['pandoc',
-        '--mathjax',
-        '-f',
-        'markdown',
-        '-t',
-        'html',
-        TempFileMD.name,
-        '-o',
-        TempFileHTML.name,
+    extra_args = [
+        "--mathjax",
         "-F",
         "pandoc-crossref",
         "-F",
-        "pandoc-citeproc"] + bib)
+        "pandoc-citeproc"] + bib
 
-    print("Reading temporary output file")
-    OutputData = TempFileHTML.read()
-
-    TempFileMD.close()
-    TempFileHTML.close()
+    print("Running Pandoc (MD -> HTML)")
+    OutputData = pypandoc.convert_text(content, "html", format="md", extra_args=extra_args)
 
     return OutputData
 
@@ -165,12 +148,9 @@ def process(fileName):
         else:
             fullTxt+="\nMDCOMMENT"+token[2]+"\n"
 
-    with open("full.tex","w") as fout:
-        fout.write(fullTxt)
-
     # use ltmd to convert
     
-    InputText=ltmd.GetTex('full.tex')
+    InputText=fullTxt
 
     # Before we do, remove any random \rules, and \ces
 
@@ -182,24 +162,18 @@ def process(fileName):
     PreProcessed = ltmd.PreProcess(InputText, ImgPrepend="/")
     Pandocced = ltmd.RunPandoc(PreProcessed.ParsedText, extra=["--mathjax"])
     PostProcessed = ltmd.PostProcess(Pandocced, PreProcessed.ParsedData)
-    Output = ltmd.OutputMD('full.md.tmp', PostProcessed.ParsedText)
+    OutputText = PostProcessed.ParsedText
 
     # add a last line marker to terminate the opened sections and lectures
     
-    fullMD=open('full.md.tmp').read().replace('MDCOMMENT',r'[\\] # ')
+    fullMD=OutputText.replace('MDCOMMENT',r'[\\] # ')
     endUID=getUID()
     fullMD+=r"[\\] # "+endUID+"\n"
     lexer.end['section'][lexer.current['section']]=endUID
     lexer.end['lecture'][lexer.current['lecture']]=endUID
 
-    # write md file
-
-    with open('full.md','w') as fout:
-        fout.write(fullMD)
-
     # MD --> HTML conversion
     
-    fullMD=open('full.md').read()
     fullMDforHTML=re.sub(r"\[\\\\\] # (\d+)", r"<!-- \1 -->", fullMD)
     html=run_pandoc(fullMDforHTML, bibliography=tex_dir + 'bibliography.bib')
 
