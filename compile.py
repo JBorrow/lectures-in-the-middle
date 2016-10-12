@@ -201,7 +201,7 @@ def process(fileName):
     
     fullMD=open('full.md').read()
     fullMDforHTML=re.sub(r"\[\\\\\] # (\d+)", r"<!-- \1 -->", fullMD)
-    html=run_pandoc(fullMDforHTML, bibliography='bibliography.bib')
+    html=run_pandoc(fullMDforHTML, bibliography=tex_dir + 'bibliography.bib')
 
     # separate the sections 
 
@@ -300,6 +300,7 @@ except OSError:
 files = get_tex('./tex')
 
 for f in files:
+    print("Compiling {}".format(f))
     seclist,leclist=process(f)
     dbSections.append({'name':f.split('.')[0],'sections':seclist})
     dbLectures.extend(leclist)
