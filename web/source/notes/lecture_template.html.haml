@@ -1,0 +1,43 @@
+---
+title: Lectures
+---
+
+- current_page.data.subtitle = subtitle
+
+.sm-flex.flex-auto.mxn2
+  .flex-auto.p2.lg-col-9
+    %h2 Lecture #{lec.name.to_s}
+    =partial "notes/_Lecture_#{lec.name.to_s.tr(" ", "_")}.html"
+
+    - previous_lec = ""
+    - next_item = ""
+    - previous = ""
+    - last_was_it = false
+    - data.lectures.each do |loop_lec|
+      - if loop_lec == lec
+        - last_was_it = true
+        - previous = previous_lec
+      - elsif last_was_it
+        - next_item = loop_lec
+        - break
+      - else
+        - previous_lec = loop_lec
+    
+    .previous-next-buttons
+    - if previous != ""
+      .btn.previous
+        = link_to "Previous", "notes/Lecture_#{CGI::escape(previous.name.tr(":", ""))}.html"
+    - if next_item != ""
+      .btn.next
+        = link_to "Next", "notes/Lecture_#{CGI::escape(next_item.name.tr(":", ""))}.html"
+
+  .flex-auto.p2.lg-col-3
+    %h2 Lectures
+    %ul.section-list.list-reset
+      - data.lectures.each do |loop_lec|
+        - if loop_lec == lec
+          - this_class = "active"
+        - else
+          - this_class = "inactive"
+        %li{:class => this_class}= link_to loop_lec.name.to_s, "/notes/Lecture_#{CGI::escape(loop_lec.name.tr(":", ""))}.html"
+

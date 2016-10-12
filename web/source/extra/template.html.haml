@@ -1,0 +1,40 @@
+---
+title: Interactive
+---
+
+.sm-flex.flex-auto.mxn2
+  .flex-auto.p2.lg-col-9
+    =partial "extra/_#{sec.name.to_s.tr(" ", "_")}.html"
+    
+    - previous_sec = ""
+    - next_item = ""
+    - previous = ""
+    - last_was_it = false
+    - data.extra.each do |loop_sec|
+      - if loop_sec == sec
+        - last_was_it = true
+        - previous = previous_sec
+      - elsif last_was_it
+        - next_item = loop_sec
+        - break
+      - else
+        - previous_sec = loop_sec
+    
+    .previous-next-buttons
+    - if previous != ""
+      .btn.previous
+        = link_to "Previous", "extra/#{CGI::escape(previous.name.tr(":", ""))}.html"
+    - if next_item != ""
+      .btn.next
+        = link_to "Next", "extra/#{CGI::escape(next_item.name.tr(":", ""))}.html"
+
+  .flex-auto.p2.lg-col-3
+    %h2 Sections
+    %ul.section-list.list-reset
+      - data.extra.each do |loop_sec|
+        - if loop_sec == sec
+          - this_class = "active"
+        - else
+          - this_class = "inactive"
+        %li{:class => this_class}= link_to loop_sec.name.to_s, "/extra/#{CGI::escape(loop_sec.name.tr(":", ""))}.html"
+

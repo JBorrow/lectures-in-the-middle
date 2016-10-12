@@ -1,0 +1,24 @@
+---
+title: Notes
+---
+
+.p2
+  %h1 Notes
+
+  %p Click on the lectures or section titles below to be taken to the relevant part in the lecture notes. You can also use the search function to find notes easier.
+  - data.information.each do |info|
+    %h2= info.name
+
+    .flex.flex-wrap.mxn2
+      - info.sections.each do |sec|
+        .sm-col-6.lg-col-4.border-box.p2
+          .p2.border.rounded.card
+            - if sec.image
+              =image_tag sec.image, :class => 'fit'
+            = link_to "<h2>#{sec.name}</h2>", "notes/#{CGI::escape(sec.name.tr(":", ""))}.html"
+            - if sec.lectures != []
+              %ul.lectures
+                - sec.lectures.each do |lec|
+                  %li.rounded.my1= link_to "Lecture #{lec.number}", "notes/#{CGI::escape(sec.name.tr(":", ""))}.html#lecture-#{lec.number}"
+              
+

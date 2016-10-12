@@ -1,0 +1,18 @@
+---
+title: Interactive
+---
+.p2
+  %h1 Interactive
+
+  %p These interactive demos should help you understand the material better. If you have any suggestions for more that could be created, please let me know!
+
+  .flex.flex-wrap.mxn2
+    - data.extra.each do |info|
+      .flex.sm-col-6.lg-col-4.border-box.p2
+        .p2.border.rounded.card
+          =image_tag info.img, :class => 'fit'
+          =link_to "/extra/#{CGI::escape(info.name.tr(":", ""))}.html" do
+            %h2= info.name
+            %p= info.information
+
+

@@ -1,0 +1,33 @@
+!!! HTML
+
+%html
+  %head
+    %meta{"content" => "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{"charset" => "utf-8"}
+    %meta{"content" => "width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no", "name" => "viewport"}
+
+    =favicon_tag 'images/favicon.png'
+    
+    - if defined? subtitle
+      - subtitletext = " | #{subtitle}"
+    - else
+      - subtitletext = ""
+
+    %title= "Nuclear and Particle Physics | #{current_page.data.title}#{subtitletext}"
+
+    =partial "css_cdn.html"
+
+    =stylesheet_link_tag :site
+    =javascript_include_tag :all
+
+  %body{"class" => page_classes}
+    .flex.flex-column.height100
+      .header.nav
+        .content
+          =partial "navbar"
+      .main.flex-auto.p2
+        .content
+          =yield
+
+    =partial "js_cdn.html"
+    =partial "ganalytics.html"
