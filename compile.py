@@ -2,6 +2,7 @@ import ply.lex as lex
 import ply.yacc as yacc
 import sys
 import os
+import shutil
 import random
 import re
 import tempfile
@@ -13,6 +14,9 @@ import pypandoc
 
 compile_dir = './compiled/'
 tex_dir = './tex/'
+image_dir = './images/'
+web_dir = './web/'
+args = sys.argv
 
 def getUID():
     return "{:0<10}".format(random.randint(0, 1e10))
@@ -283,3 +287,42 @@ with open('./compiled/information.yaml', 'w') as f:
     f.write(yaml.dump(dbSections))
 with open('./compiled/lectures.yaml', 'w') as f:
     f.write(yaml.dump(dbLectures))
+
+### Now we must deal with files, building middleman etc.
+
+op_img_dir = web_dir + 'source/images/'
+op_data_dir = web_dir + 'data/'
+op_notes_dir = web_dir + 'source/notes/'
+
+for dir in [op_img_dir, op_data_dir, op_notes_dir]:
+    try:
+        os.mkdir(dir)
+    except OSError:
+        pass
+
+print("Copying Images...")
+for img in os.listdir(image_dir):
+    shutil.copyfile(image_dir + img, op_img_dir + img)
+
+print("Copying Compiled Files...")
+for compiled in os.listdir(compile_dir):
+    if compiled[-4:] == 'yaml':
+        shutil.copyfile(compile_dir + compiled, op_data_dir + compiled)
+    elif compiled[-4:] == 'html':
+        shutil.copyfile(compile_dir + compiled, op_notes_dir + compiled)
+    else:
+        print("Unable to classify file {}{}".format(compile_dir, compiled))
+
+### Middleman stuff
+
+os.chdir(web_dir)
+
+try:
+    print("Removing old build files")
+    shutil.rmtree("./build/")
+except FileNotFoundError:
+    # no old build files
+    pass
+
+print("Building new middleman files")
+os.system("bundle exec middleman build")
