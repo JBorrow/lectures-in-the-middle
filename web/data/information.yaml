@@ -1,0 +1,322 @@
+- name: Particles
+  sections:
+  - image: Wboth.png
+    lectures:
+    - kps: ['All vertices in a Feynamn diagram must conserve charge, lepton numbers
+          and baryon number.']
+      number: '16'
+    name: Feynamn diagrams
+  - image: Charmonium.png
+    lectures:
+    - kps: [' Bound states of a charm quark-antiquark are called charmonium, a bound
+          state of a bottom quark and antiquark is called bottomium. We can use these
+          states and its excited states to study the potential between a quark and
+          an antiquark, in the same way that we can study the electromagnetic potential
+          studying the Hydrogen atom or the positronium.', The large splitting of
+          the $L=0$ quarkonia states is due to a spin-spin interaction., 'At small
+          distances $r$ the $q\bar{q}$ potential behaves as $1/r$ but it is not a
+          pure $1/r$ potential: we have an additional term linear in the distance
+          which leads to confinement.']
+      number: '17'
+    name: Quarkonia
+  - image: charmoniumDecay5.png
+    lectures:
+    - kps: ['Quarkonia states can decay in four ways: (a) decay into a lower state
+          through emission of a photon, (b) annihilation of the $q\bar{q}$ pair into
+          an off-shell photon (which subsequently decays into, for example, a lepton
+          pair) or several real photons, (c) decay into several hadrons through the
+          creation of a $q\bar{q}$ pair from the vacuum and recombination of the $c$/$b$
+          quarks with them into mesons, (d) Weak decay of the heavy ($c$,$b$) quark
+          into a lighter quark.']
+      number: '18'
+    name: Quarkonia decays
+  - image: MesonOctetJ0.png
+    lectures:
+    - kps: ['Mesons are bound states of a quark and an anti-quark, normally involving
+          the light quarks $u$,$d$ and $s$. We only consider the states with no orbital
+          angular momentum ($L=0$).', 'There are two types of mesons, pseudo-scalar
+          mesons which have spin $0$ and vector mesons that have spin $1$.', Mesons
+          have negative parity (for the $L=0$ states we are considering), 'We introduce
+          the strangeness quantum number. It is additive, $s$-quark have strangeness
+          $-1$ and $\bar{s}$-quarks have strangeness $+1$. All other quarks have strangeness
+          $0$.']
+      number: '19'
+    - kps: [' The mass splitting between the mesons in the same multiplet is due to
+          the mass difference between the $s$-quarks and the $u$ and $d$ quarks, and
+          to a spin-spin interaction.']
+      number: '20'
+    name: Light quark mesons
+  - image: K0Decay3.png
+    lectures:
+    - kps: [The neutral pion decays into two photons., The charged pions decay weakly
+          and have therefore a much longer lifetime than the neutral pions., The scalar
+          kaons can only decay weakly and has therefore a long lifetime, The vector
+          mesons decay into their pseudo-scalar counterparts and pions.]
+      number: '20'
+    name: Meson decays
+  - image: BaryonDecuplet.png
+    lectures:
+    - kps: [Baryons are bound states of three quarks. Anti-baryons are bound states
+          of three anti-quarks., There are baryons with spin $1/2$ and baryons with
+          spin $3/2$., ' Depending on the number of $s$-quarks in them, the baryons
+          form different isospin multiplets.', The condition that the wave function
+          of the quarks in the baryon satisfies the Pauli principle imposes constraints
+          on what spins and isospin combination are possible., The mass splitting
+          between the $J=3/2$ and $J=1/2$ states can be explained by a spin-spin interaction
+          as in the meson. The form of the interaction depends on the relative spin
+          of the valence quarks. Information about the relative spin can be inferred
+          from symmetry properties of the wave-function., The constituent mass of
+          the quarks in the baryon are larger than in the meson.]
+      number: '21'
+    name: Baryons
+  - image: LinearCollider.png
+    lectures:
+    - kps: [$e^+e^-$ collisions are useful because they are a clean initial state
+          with a well defined centre of mass energy. In proton-electron collisions
+          the centre of mass energy of the electron and proton is defined by the experimental
+          setup but the actual centre of mass energy of the elastic collision between
+          the electron and the constituent is only defined statistically through the
+          parton distribution functions., 'hadron production occurs in $e^+e^-$ collisions
+          through the production of a quark-antiquark pair. This is possible as long
+          as the centre of mass energy $\sqrt{s}$ is larger than the rest mass of
+          the 2 produced quarks.', By looking at the ratio $R$ between the hadron
+          production $\mu^+\mu^-$ production we can see the quark thresholds and infer
+          the quark charges.]
+      number: '22'
+    - kps: [' We see hadronic resonances in the hadron production, they correspond
+          to the meson states with quantum numbers compatible with the photon ($J^P=1^-$),
+          namely the vector mesons.', 'At a centre of mass energy of $\sqrt{s}\simeq$
+          91 GeV in $e^+e^-$ collisions we can produce a $Z$ boson.', 'The height
+          of the peak of resonances is related to the width of the resonance and the
+          width of the resonance to decay into the initial and final states. The width
+          of the resonance is the total width, in all channels, but the height can
+          be different.']
+      number: '23'
+    name: Electron-positron collisions
+  - image: Nonleptonic2.png
+    lectures:
+    - kps: ['The weak interaction is mediated through the $W^{\pm}$ and $Z^0$ bosons,
+          it is responsible to the nuclear beta decays and the decay of heavy quarks.',
+        'There are three types of charged leptons, the electron ($e^-$), muon ($\mu^-$)
+          and tau ($\tau^-$).', 'The muon is heavier that the electron and can decay
+          into the an electron, a neutrino and an anti-neutrino.', The tau lepton
+          is the heaviest and can decay into the lighter charged leptons and a neutrino
+          and an anti-neutrino., 'Neutrinos are electrically neutral particles that
+          only interact weakly. They are fermions and they have an anti-particle. ',
+        There is one type of neutrino for each type of charged lepton., ' We can organise
+          the leptons in "generations", one for the electron and electron neutrino,
+          one for the muon and the muon neutrino and one for the tau and tau neutrino. ',
+        ' We can associate an additive quantum number for each of these families with
+          $N_l=+1$ for the charged lepton $l$ and its neutrino $\nu_l$ and $N_l=-1$
+          for the charged anti-lepton $l^+$ and the anti-neutrino $\bar{\nu}_l$. This
+          quantum number is conserved in all interaction vertices, but over very long
+          distances neutrino can oscillate from one flavour to the other, so that
+          this violate individual lepton numbers.', The sum $L=L_e+L_\mu+L_\tau$ is
+          conserved., 'The weak interactions can be divided into two types: the charged
+          currents which involve the exchange of a $W^+$ or a $W^-$ boson, or the
+          neutral currents that involve the exchange of a $Z^0$ boson.', 'A $W$ boson
+          can interact with a charged lepton-neutrino pair or with a quark pair. As
+          the charged current name hints, the interaction involves a change of charge
+          for the members of the pair.', 'A $Z$ boson can interact with charged leptons,
+          neutrinos, quarks and with a $W$ boson pair, but it cannot change the flavour
+          of the particles it interacts with. A $Z$ boson cannot change the flavour
+          of a quark or lepton it interacts with.']
+      number: '24'
+    - kps: [At low energies the exchange of a $W$ boson can be seen as a $4$-fermion
+          interaction with $G_F$ as its coupling strength., 'Each of the $u$,$c$,$t$
+          quarks can interact with any of the $d$,$s$,$b$ quarks through the exchange
+          of a $W$ boson.', 'By realising that the weak eigenstates do not have to
+          be the same as the EM and strong eigenstates we can build linear combinations
+          of the $d$,$s$ and $b$ quarks in a way such that the interaction of the
+          $u$,$c$,$t$ quarks is only with one of the combinations.', The matrix of
+          the basis change from EM and strong eigenstates to the weak interaction
+          eigenstates is the CKM matrix., The CKM matrix can explain different probability
+          for weak processes involving different quark flavours.]
+      number: '25'
+    name: Weak interaction
+  - image: MuonDecay.png
+    lectures:
+    - kps: [The helicity of a particle is given by the projection of the spin measured
+          along the momentum direction divided by the magnitude of the spin. Massless
+          particles with spin aligned with the momentum are called right-handed and
+          those with spin anti-aligned with their momentum are called left-handed.
+          Left handed and right-handed states are related through parity., The weak
+          interaction only couples left-handed particles and right-handed anti-particles.
+          The explicitly violates parity., 'Because the weak interaction only couples
+          to LH neutrinos and RH anti-neutrinos, right-handed neutrinos, if they exist,
+          do not interact with conventional matter.', For massive particles the helicity
+          is a frame-dependent quantity. One can define right handed and left-handed
+          states for them as a linear combination of helicity states and the weak
+          interaction only couples to the left-handed fermion states and to the right-handed
+          anti-fermion states., Because the fraction of the LH states that has positive
+          helicity is proportional to the mass of the particle weak processes for
+          which angular momentum conservation forces a high energy fermion to have
+          positive helicity are suppressed.]
+      number: '26'
+    name: Parity violation
+  - image: KSKL2.png
+    lectures:
+    - kps: [' Because the weak interaction only couples LH fermions and RH anti-fermions
+          the charge conjugation symmetry is also violated.', The combination $CP$
+          of charge conjugation and parity is conserved in the lepton sector, $CP$
+          is violated in the quark sector because of a small phase in the CKM matrix.]
+      number: '27'
+    name: CP violation
+  - image: tensorProduct.png
+    lectures: []
+    name: 'Appendix: Tensor sums and products'
+  - image: baryonsCb.png
+    lectures: []
+    name: 'Appendix: Symmetries, spin and isospin'
+- name: Scattering
+  sections:
+  - image: inelastic1.png
+    lectures:
+    - kps: ['The higher the energy of the projectile, the deeper one can ``see''''
+          inside the structure of matter.']
+      number: '8'
+    name: Introduction
+  - image: beam.png
+    lectures:
+    - kps: [The cross section is a very useful quantity to characterise a physical
+          scattering process.]
+      number: '8'
+    name: Cross Sections
+  - image: histograms.png
+    lectures:
+    - kps: [More information about the dynamics of the interaction can be shown by
+          measuring the cross section differentially with respect to observables.
+          Such a differential cross section is represented as an histogram.]
+      number: '8'
+    - kps: [The Rutherford cross section describes the elastic scattering of a charged
+          particle off the potential created by another charge.]
+      number: '9'
+    name: Representing Cross Sections
+  - image: rutherfordMott.png
+    lectures:
+    - kps: [' When the projectile is relativistic, its spin has to be taken into account,
+          this leads to the Mott cross section.', Helicity conservation suppresses
+          backward scattering.]
+      number: '10'
+    name: The Mott Cross Section
+  - image: CaFormFactor.png
+    lectures:
+    - kps: [If the scattering is off a charge distribution instead of a point-particle
+          then the matrix element is reduced by a factor called the form factor. The
+          form factor is the Fourier transform of the charge distribution. The cross
+          section is reduced by the square of the magnitude of the form factor., Looking
+          at the ratio between the point-like cross section and the actual cross section
+          one can infer the form of the charge distribution. Using this technique
+          one can measure the charge distribution in the nucleus of an atom.]
+      number: '10'
+    name: Nuclear Form Factors
+  - image: QFT.png
+    lectures:
+    - kps: [One can use the form factor technique to measure the charge distribution
+          of the proton or neutron. In this case we need to consider the magnetic
+          interaction due to the spin of the nucleon and one can measure both the
+          electric charge and the magnetic moment distribution inside the nucleons.,
+        If the energy of the scattering is large enough to be able to create and destroy
+          states we need to go from Quantum Mechanics to Quantum Field Theory. One
+          consequence is that forces are now mediated through the exchange of a particle.]
+      number: '11'
+    name: Scattering off Nucleons
+  - image: inelasticScatteringeP.png
+    lectures:
+    - kps: [If the energy is further increased much above the proton mass the proton
+          is changed after the scattering and the scattering is therefore non-elastic.
+          As a consequence we now need two parameter to describe the scattering.]
+      number: '12'
+    name: Inelastic Scattering
+  - image: HeraStructureFunction.png
+    lectures:
+    - kps: [In a deep inelastic experiment one collides a large energy electron with
+          a proton., 'There are several regimes in DIS: a) at low energies one sees
+          an elastic scattering of the electron off the proton. b)at moderate energies
+          the electron can transfer enough energy to excite the nucleon to excited
+          states (some of them are the $\Delta$ baryons). c) at higher energies the
+          electron recoils against point-like objects inside the proton.']
+      number: '12'
+    name: Deep Inelastic Scattering
+  - image: DISkinematics.png
+    lectures:
+    - kps: [The parton model stipulates that the proton is made up from constituent
+          particles called partons (we know now that they are quarks and gluons.,
+        The fact that the structure function follows the Callan-Gross relation is
+          a sign that the constituents in the nucleons are spin $1/2$ particles.]
+      number: '13'
+    - kps: [The constituents have a momentum fraction distribution described by parton
+          distribution functions., 'There are two types of quarks in a nucleon: the
+          valence quark that give the quantum numbers of the nucleon and the sea quarks
+          that come in pairs and don''t give a net contribution to the quantum numbers
+          of the nucleon.']
+      number: '14'
+    name: The Parton Model
+  - image: neutrinoNucleonStructureFunction.png
+    lectures:
+    - kps: [We can get information about the parton distribution functions using DIS
+          with different targets and using electrons or neutrinos in the collision.,
+        The total momentum fraction carried by the quarks in a nucleon is about 1/2.
+          Which means that the rest should be carried by particles with no electric
+          of weak charges. The rest of the momentum is carried by the gluons., 'We
+          need to introduce a new quantum number to accommodate for the $\Delta^{++}$
+          resonance in order to respect the Pauli exclusion principle.', 'Quarks and
+          gluons carry colour charges. Quarks can have one of three colours, antiquarks
+          carry anti-colour charges and gluons carry a colour-anticolour charge.',
+        'Gluons are the carriers of the strong interaction. Since gluons also carry
+          colour charges, they can interact between themselves, which photons cannot.
+          One consequence is that the strong coupling is increasing as the energy
+          lowers (which means that the distance increases).', 'Only colour neutral
+          objects can exist at a scale of $\simeq  1$ fm. ']
+      number: '14'
+    name: Quark Structure of the Nucleus
+  - image: Q2depPDF.png
+    lectures:
+    - kps: ['The parton distribution functions have a mild energy dependence, this
+          is due to the fact that at a larger energy we can resolve more of the cloud
+          of sea quarks and gluons present in the nucleon.']
+      number: '15'
+    name: Scaling Violation
+  - lectures: []
+    name: Appendix
+- name: Nuclear
+  sections:
+  - image: BindingEnergyAll.png
+    lectures:
+    - kps: [Protons and Neutrons are collectively called Nucleons, Nuclei are characterised
+          by their Atomic and Mass numbers, The binding energies are calculated with
+          the semi-epirical mass formula]
+      number: '1'
+    - kps: [The nuclear force is short range and creates a more or less constant potential
+          within the nucleus volume., Nucleons at the boundary of the nucleus volume
+          have fewer neighbours and therefore their binding energy is smaller., Protons
+          in the nucleus experience a repulsive Coulomb force due to their positive
+          charges., 'Protons and nucleons prefer to be in pairs in the nucleons, it
+          gives rise to the pairing term.']
+      number: '2'
+    name: Nuclear Masses and Binding Energies
+  - image: decayConstant.png
+    lectures:
+    - kps: [Nuclei can exchange a neutron for a proton in a $\beta^-$ decay., Nuclei
+          can exchange a proton for a neutron in a $\beta^+$ decay., Nuclei can capture
+          an electron in the atom to change a proton in a neutron., The $^4He$ nucleus
+          is very stable and can be emitted by an unstable nucleus. Such a decay is
+          called $\alpha$ decay.]
+      number: '3'
+    - kps: [Heavy nuclei can decay spontaneously into smaller parts., A suitable arrangement
+          of fissible material and moderator can sustain a controlled chain reaction.]
+      number: '4'
+    name: Nuclear Decay
+  - image: firstExcitedStateEnergyWithLegend.png
+    lectures:
+    - kps: [The spin-orbit interaction in the nucleus is much stronger than in the
+          hydrogen atom and has opposite sign., 'The shell model can explain the magic
+          numbers and predict spin and parity of ground state of nuclei, as well as
+          some excited states.']
+      number: '5'
+    - kps: [Nuclei in excited states can relax to lower lying states through the emission
+          of photons. This process is called $\gamma$-radiation.]
+      number: '6'
+    name: The Shell Model
+  - lectures: []
+    name: Advanced topics

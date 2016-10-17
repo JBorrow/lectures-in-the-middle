@@ -1,3 +1,7 @@
+.card {
+	background-color:#FFF;
+}
+
 .card a {
 	text-decoration:none;
 	color:black;
@@ -7,10 +11,11 @@
 	margin:auto;
 	text-align:center;
 	display:block;
+	margin-bottom:1em;
 }
 
 .card h2 {
-	padding-bottom:1em;
+	margin-top:0;
 }
 
 

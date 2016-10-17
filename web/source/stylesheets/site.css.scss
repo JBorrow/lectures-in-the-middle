@@ -3,6 +3,7 @@
 @import "cards";
 @import "search";
 
+$bgcolor: #EEEEEE;
 
 html * {
 	font-family:Roboto;
@@ -11,6 +12,7 @@ html * {
 body {
 	padding:0;
 	margin:0;
+	background-color:$bgcolor;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -57,13 +59,13 @@ pre {
 }
 
 .lecture {
-	text-align:center;
 	font-weight:bold;
 	color:black;
-	padding:1em;
-	margin:1em 0;
-	background-color:#FFFFFF;
-	border-radius:2px;
+	padding:1em 2.1em;  // .1 to overhang border
+	margin:1em -1.1em;
+	background-color:$bgcolor;
+	border-top:1px solid black;
+	border-bottom:1px solid black;
 	text-align: right;
 }
 
@@ -124,8 +126,9 @@ table caption {
 }
 
 .keypoints {
-    background-color:#C2AEAE;
-    padding:1em;
+    background-color:$bgcolor;
+    padding:0.5em 1em;
+	border:1px solid black;
 }
 
 hr { 
@@ -143,7 +146,25 @@ tr.header, .even {
 	background-color:#EEEEEE;
 }
 
+// Glossary
+
 .glossary-key {
     font-weight:bold;
+	font-family:Inconsolata;
     background-color:#EEEEEE;
+}
+
+.glossary-desc {
+	margin-bottom:1em;
+}
+
+// Content page
+
+.actual-content {
+	background-color:#FFFFFF;
+	border:1px solid black;
+}
+
+.actual-content, .sidebar {
+	margin-bottom:1em;
 }

@@ -5,7 +5,7 @@ title: Notes
 - current_page.data.subtitle = subtitle
 
 .sm-flex.flex-auto.mxn2
-  .flex-auto.p2.lg-col-9
+  .flex-auto.p2.lg-col-9.actual-content
     =partial "notes/_#{sec.name.to_s.tr(" ", "_")}.html"
 
     - previous_sec = ""
@@ -30,7 +30,7 @@ title: Notes
       .btn.next
         = link_to "Next", "notes/#{CGI::escape(next_item.name.tr(":", ""))}.html"
 
-  .flex-auto.p2.lg-col-3
+  .flex-auto.p2.lg-col-3.sidebar
     %h2 Sections
     %ul.section-list.list-reset
       - info.sections.each do |loop_sec|

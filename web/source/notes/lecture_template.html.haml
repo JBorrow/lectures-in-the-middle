@@ -5,7 +5,7 @@ title: Lectures
 - current_page.data.subtitle = subtitle
 
 .sm-flex.flex-auto.mxn2
-  .flex-auto.p2.lg-col-9
+  .flex-auto.p2.lg-col-9.actual-content
     %h2 Lecture #{lec.name.to_s}
     =partial "notes/_Lecture_#{lec.name.to_s.tr(" ", "_")}.html"
 
@@ -31,7 +31,7 @@ title: Lectures
       .btn.next
         = link_to "Next", "notes/Lecture_#{CGI::escape(next_item.name.tr(":", ""))}.html"
 
-  .flex-auto.p2.lg-col-3
+  .flex-auto.p2.lg-col-3.sidebar
     %h2 Lectures
     %ul.section-list.list-reset
       - data.lectures.each do |loop_lec|
@@ -39,5 +39,5 @@ title: Lectures
           - this_class = "active"
         - else
           - this_class = "inactive"
-        %li{:class => this_class}= link_to loop_lec.name.to_s, "/notes/Lecture_#{CGI::escape(loop_lec.name.tr(":", ""))}.html"
+        %li.inline-block{:class => this_class}= link_to loop_lec.name.to_s, "/notes/Lecture_#{CGI::escape(loop_lec.name.tr(":", ""))}.html"
 
