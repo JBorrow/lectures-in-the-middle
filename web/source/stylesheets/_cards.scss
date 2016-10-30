@@ -1,36 +1,39 @@
-.card {
-	background-color:#FFF;
-}
+$shadowcolor: #CCCCCC;
+$shadowoff: 10px;
+$shadow: 1px;
 
-.card a {
-	text-decoration:none;
-	color:black;
+// BASE
+
+.card {
+  box-shadow: $shadow $shadow $shadowoff $shadowcolor;
 }
 
 .card img {
-	margin:auto;
-	text-align:center;
-	display:block;
-	margin-bottom:1em;
+  border-radius:2px;
 }
 
-.card h2 {
-	margin-top:0;
+.bottomsep {
+  border-bottom:1px solid $bordercolor;
+  padding-bottom:0.5em;
+  margin:0.5em 0;
 }
 
+// LECTURES
 
 .lectures {
-	list-style:none;
-	padding:0;
-	margin-top:1em;
+  list-style:none;
+  padding:0;
+  margin-top:0.5em;
+  margin-bottom:-0.5em;  // to offset overshoot due to lectures bttom margin
 }
 
 .lectures li {
-	display:inline-block;
-	background-color:black;
-	padding:1em;
+  background-color:$navbg;
+  display:inline-block;
+  padding:1em;
+  margin-top:0;  // initally has some that we don't want to have even top-bottom spacing for border
 }
 
 .lectures li a {
-	color:white;
+  color:$navtxt;
 }

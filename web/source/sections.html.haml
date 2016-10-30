@@ -15,7 +15,7 @@ title: Notes
           .p2.border.rounded.card
             - if sec.image
               =image_tag sec.image, :class => 'fit'
-            = link_to "<h2>#{sec.name}</h2>", "notes/#{CGI::escape(sec.name.tr(":", ""))}.html"
+            = link_to "<h2 class='bottomsep'>#{sec.name}</h2>", "notes/#{CGI::escape(sec.name.tr(":", ""))}.html"
             - if sec.lectures != []
               %ul.lectures
                 - sec.lectures.each do |lec|

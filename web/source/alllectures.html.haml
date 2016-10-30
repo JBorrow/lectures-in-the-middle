@@ -8,9 +8,9 @@ title: All Lectures
     - data.lectures.each do |info|
       .sm-col-6.lg-col-4.border-box.p2
         .p2.border.rounded.card
-          = link_to "<h2>Lecture #{info.name}</h2>", "notes/Lecture_#{CGI::escape(info.name.tr(":", ""))}.html"
           - if info.image
             =image_tag info.image, :class => 'fit'
+          = link_to "<h2 class='mb0'>Lecture #{info.name}</h2>", "notes/Lecture_#{CGI::escape(info.name.tr(":", ""))}.html"
   
 
   

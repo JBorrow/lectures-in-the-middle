@@ -1,0 +1,36 @@
+// VARIABLES
+
+// // Borders
+
+$bordercolor:#CCCCCC;
+
+// // Headings
+
+$heading_a_color:#000000;
+
+// BASE
+
+html * {
+  font-family:sans-serif;
+}
+
+// // Links
+
+a {
+  text-decoration:none;
+}
+
+// // Borders
+
+.border {
+  border-color:$bordercolor;
+}
+
+// // Headings
+
+@for $i from 1 through 6 {
+  a>h#{$i} , a>.h#{$i} {
+    color:$heading_a_color;
+  }
+}
+

@@ -1,0 +1,30 @@
+$navbg: #000000;
+$navtxt: #FFFFFF;
+
+
+// BASE
+
+.nav {
+  background-color: $navbg;
+  padding:0;
+}
+
+.nav ul {
+  list-style:none;
+}
+
+.nav ul li {
+  display:inline-block;
+  padding-right:1em;
+}
+
+.nav ul li a {
+  color:$navtxt;
+  text-decoration:none;
+}
+
+// INTERACTIVITY
+
+.active {
+  font-weight:bold;
+}
