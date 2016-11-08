@@ -1,7 +1,9 @@
 %ul
-  %li{class: (current_page.path == "index.html" ? "active": "inactive")}= link_to "Home", "/index.html", :relative => true, "class" => "btn block"
-  %li{class: (current_page.path == "sections.html" ? "active": "inactive")}= link_to "Notes", "/sections.html", :relative => true, "class" => "btn block"
-  %li{class: (current_page.path == "lectures.html" ? "active": "inactive")}= link_to "Lectures", "/alllectures.html", :relative => true, "class" => "btn block"
-  %li{class: (current_page.path == "extra.html" ? "active": "inactive")}= link_to "Interactive", "/extra.html", :relative => true, "class" => "btn block"
-  %li{class: (current_page.path == "glossary.html" ? "active": "inactive")}= link_to "Glossary", "/glossary.html", :relative => true, "class" => "btn block"
-  %li{class: (current_page.path == "search.html" ? "active": "inactive")}= link_to "Search", "/search.html", :relative => true, "class" => "btn block"
+  - [["index.html", "Home"],
+     ["sections.html", "Notes"],
+     ["alllectures.html", "Lectures"],
+     ["extra.html", "Interactive"],
+     ["glossary.html", "Glossary"],
+     ["search.html", "Search"]].each do |sec|
+    =nav_link(sec[1], sec[0])
+

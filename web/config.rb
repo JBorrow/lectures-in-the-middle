@@ -14,6 +14,7 @@ page '/*.txt', layout: false
 # With alternative layout
 # page "/path/to/file.html", layout: :otherlayout
 
+
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", locals: {
 #  which_fake_page: "Rendering a fake page with a local variable" }
@@ -46,6 +47,21 @@ ignore '/notes/template.html.haml'
 #     "Helping"
 #   end
 # end
+
+helpers do
+  def web_title()
+    return "Nuclear & Particle Physics"
+  end
+
+  def nav_link(link_text, url, options = {})
+    if url == current_page.path
+      clss = "active"
+    else
+      clss = "inactive"
+    end
+    return "<li class='#{clss}'>" + link_to(link_text, url, options) + "</li>"
+  end
+end
 
 activate :search do |search|
   search.resources = ['notes/', 'extra/']
