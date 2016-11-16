@@ -12,9 +12,4 @@ title: All Lectures
         .p2.border.rounded.card
           - if info.image
             =image_tag info.image, :class => 'fit'
-          = link_to "<h2 class='mb0'>Lecture #{info.name}</h2>", "notes/Lecture_#{CGI::escape(info.name.tr(":", ""))}.html"
-  
-
-  
-              
-
+          = link_to "<h2 class='mb0'>Lecture #{info.name}</h2>", "lectures/Lecture_#{CGI::escape(info.name.tr(":", ""))}.html"

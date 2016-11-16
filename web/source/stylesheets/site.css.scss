@@ -3,8 +3,27 @@
 @import "navbar";
 @import "cards";
 @import "header";
+@import "buttons";
 
 html body {
   margin:0;
   padding:0;
 }
+
+// Better lists
+
+ul.nicelist {
+  list-style:none;
+  padding-left:0;
+}
+
+.nicelist li {
+  padding-bottom:4px;
+}
+
+.nicelist li:before {
+  content: "+";
+  margin-right:4px;
+  font-weight:bold;
+}
+

@@ -1,0 +1,47 @@
+// LECTURES, SECTIONS
+
+.lectures-list li, .section-list li {
+  background-color:$navbg;
+  border-radius:2px;
+  margin:0.25em;
+  border:1px solid $navbg;
+  padding:1em;
+}
+
+.lectures-list li a, .section-list li a {
+  color:$navtxt;
+}
+
+.lectures-list li.active, .section-list li.active {
+  background-color:$navtxt;
+}
+
+// PREVIOUS, NEXT
+
+.previous-next-buttons {
+  padding:1em 0;
+}
+
+.previous-next-buttons a {
+  font-size:1.5em;
+}
+
+.previous {
+  float:left;
+}
+
+.next {
+  float:right;
+}
+
+.next, .previous {
+  background-color:black;
+  padding:1em;
+  border-radius:2px;
+}
+
+.next a, .previous a {
+  color:white;
+  text-decoration:none;
+}
+

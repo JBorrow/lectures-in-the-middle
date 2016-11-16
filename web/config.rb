@@ -26,7 +26,7 @@ data.information.each do |info|
 end
 
 data.lectures.each do |lec|
-  proxy "/notes/Lecture_#{CGI::escape(lec.name.tr(":", ""))}.html", "/notes/lecture_template.html", :locals => { :all => data.lectures, :lec => lec, :subtitle => lec.name.to_s}, :subtitle => lec.name.to_s
+  proxy "/lectures/Lecture_#{CGI::escape(lec.name.tr(":", ""))}.html", "/lectures/lecture_template.html", :locals => { :all => data.lectures, :lec => lec, :subtitle => lec.name.to_s}, :subtitle => lec.name.to_s
 end
 
 data.extra.each do |info|
@@ -35,6 +35,7 @@ end
 
 ignore '/extra/template.html.haml'
 ignore '/notes/template.html.haml'
+ignore '/lectures/lecture_template.html.haml'
 # General configuration
 
 ###
