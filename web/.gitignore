@@ -2,3 +2,4 @@ build/*
 *.png
 source/notes/_*.html
 source/extra/_*.html
+source/lectures
