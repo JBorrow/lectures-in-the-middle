@@ -17,6 +17,7 @@ tex_dir = './tex/'
 image_dir = './images/'
 web_dir = './web/'
 args = sys.argv
+own_files = ['Nuclear.tex', 'Scattering.tex', 'Particles.tex']
 
 def getUID():
     return "{:0<10}".format(random.randint(0, 1e10))
@@ -257,15 +258,18 @@ def process(fileName):
 
 
 def get_tex(directory):
-    raw = os.listdir(directory)
-    files = []
-    for filename in raw:
-        if filename[-3:] == 'tex':
-            files.append(filename)
-        else:
-            pass
+    if not own_files:
+        raw = os.listdir(directory)
+        files = []
+        for filename in raw:
+            if filename[-3:] == 'tex':
+                files.append(filename)
+            else:
+                pass
 
-    return files
+        return files
+    
+    return own_files
 
 dbSections=[]
 dbLectures=[]
@@ -293,8 +297,9 @@ with open('./compiled/lectures.yaml', 'w') as f:
 op_img_dir = web_dir + 'source/images/'
 op_data_dir = web_dir + 'data/'
 op_notes_dir = web_dir + 'source/notes/'
+op_lectures_dir = web_dir + 'source/lectures/'
 
-for dir in [op_img_dir, op_data_dir, op_notes_dir]:
+for dir in [op_img_dir, op_data_dir, op_notes_dir, op_lectures_dir]:
     try:
         os.mkdir(dir)
     except OSError:
@@ -309,7 +314,10 @@ for compiled in os.listdir(compile_dir):
     if compiled[-4:] == 'yaml':
         shutil.copyfile(compile_dir + compiled, op_data_dir + compiled)
     elif compiled[-4:] == 'html':
-        shutil.copyfile(compile_dir + compiled, op_notes_dir + compiled)
+        if compiled[0:7] == '_Lecture':
+            shutil.copyfile(compile_dir + compiled, op_lectures_dir+ compiled)
+        else:
+            shutil.copyfile(compile_dir + compiled, op_notes_dir + compiled)
     else:
         print("Unable to classify file {}{}".format(compile_dir, compiled))
 
