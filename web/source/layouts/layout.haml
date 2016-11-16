@@ -16,9 +16,11 @@
     %title= "Nuclear and Particle Physics | #{current_page.data.title}#{subtitletext}"
 
     =partial "css_cdn.html"
+    =partial "lunr_cdn.html"
+    =partial "jquery_cdn.html"
 
     =stylesheet_link_tag :site
-    =javascript_include_tag :all
+    =javascript_include_tag :search
 
   %body{"class" => page_classes}
     .flex.flex-column.height100

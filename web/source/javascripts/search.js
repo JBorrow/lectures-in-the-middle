@@ -16,21 +16,27 @@ $.ajax({
 
 	  final_string = "";
 
-	  for (i=0; i < result.length; i++) {
+	  if (result.length > 5) {
+		  do_length = 5;
+	  } else {
+		  do_length = result.length;
+	  }
+
+	  for (i=0; i < do_length; i++) {
         dictItem = lunrDict[result[i].ref];
 		try {
 			if (dictItem.subtitle != null) {
-				subtitletext = "<h3>" + dictItem.subtitle + "</h3>";
+				subtitletext = dictItem.subtitle;
 			} else {
 				subtitletext = "";
 			}
 		} catch(err) {
 			subtitletext = ""
 		}
-        final_string = final_string + "<div class='search-result'><a href=\"." + dictItem.url + "\"><h2>" + dictItem.title + "</h2>" + subtitletext + "</a></div>";
+        final_string = final_string + "<li><a href=\"." + dictItem.url + "\"><span class='search-title'>" + dictItem.title + "</span> | <span class='search-subtitle'>" + subtitletext + "</span></a></li>";
       }
 
-	  document.getElementById('search-results').innerHTML = final_string;
+	  document.getElementById('search-output').innerHTML = final_string;
     });
 
   }

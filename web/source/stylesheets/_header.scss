@@ -1,4 +1,34 @@
 .pagehead {
   background-color:white;
   text-align:center;
+  padding:2em 0;
 }
+
+.search form input {
+  width:90%;
+  padding:0.5em;
+  border-radius:2px;
+  border:1px solid $bordercolor;
+  box-shadow: $shadow $shadow $shadowoff $shadowcolor;
+}
+
+.search-output {
+  margin:auto;
+  width:90%;
+  background-color:white;
+  border-radius:2px;
+}
+
+.search-output li {
+  background-color:white;
+  box-shadow: $shadow $shadow $shadowoff $shadowcolor;
+  border:1px solid $bordercolor;
+  border-top:0;
+  padding:0.5em;
+  text-align:left;
+}
+
+.search-title {
+  font-weight:bold;
+}
+
