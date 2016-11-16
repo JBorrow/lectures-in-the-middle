@@ -1,3 +1,155 @@
+- name: Nuclear
+  sections:
+  - image: BindingEnergyAll.png
+    lectures:
+    - kps: [Protons and Neutrons are collectively called Nucleons, Nuclei are characterised
+          by their Atomic and Mass numbers, The binding energies are calculated with
+          the semi-epirical mass formula]
+      number: '1'
+    - kps: [The nuclear force is short range and creates a more or less constant potential
+          within the nucleus volume., Nucleons at the boundary of the nucleus volume
+          have fewer neighbours and therefore their binding energy is smaller., Protons
+          in the nucleus experience a repulsive Coulomb force due to their positive
+          charges., 'Protons and nucleons prefer to be in pairs in the nucleons, it
+          gives rise to the pairing term.']
+      number: '2'
+    name: Nuclear Masses and Binding Energies
+  - image: decayConstant.png
+    lectures:
+    - kps: [Nuclei can exchange a neutron for a proton in a $\beta^-$ decay., Nuclei
+          can exchange a proton for a neutron in a $\beta^+$ decay., Nuclei can capture
+          an electron in the atom to change a proton in a neutron., The $^4He$ nucleus
+          is very stable and can be emitted by an unstable nucleus. Such a decay is
+          called $\alpha$ decay.]
+      number: '3'
+    - kps: [Heavy nuclei can decay spontaneously into smaller parts., A suitable arrangement
+          of fissible material and moderator can sustain a controlled chain reaction.]
+      number: '4'
+    name: Nuclear Decay
+  - image: firstExcitedStateEnergyWithLegend.png
+    lectures:
+    - kps: [The spin-orbit interaction in the nucleus is much stronger than in the
+          hydrogen atom and has opposite sign., 'The shell model can explain the magic
+          numbers and predict spin and parity of ground state of nuclei, as well as
+          some excited states.']
+      number: '5'
+    - kps: [Nuclei in excited states can relax to lower lying states through the emission
+          of photons. This process is called $\gamma$-radiation.]
+      number: '6'
+    name: The Shell Model
+  - lectures: []
+    name: Advanced topics
+- name: Scattering
+  sections:
+  - image: inelastic1.png
+    lectures:
+    - kps: ['The higher the energy of the projectile, the deeper one can ``see''''
+          inside the structure of matter.']
+      number: '8'
+    name: Introduction
+  - image: beam.png
+    lectures:
+    - kps: [The cross section is a very useful quantity to characterise a physical
+          scattering process.]
+      number: '8'
+    name: Cross Sections
+  - image: histograms.png
+    lectures:
+    - kps: [More information about the dynamics of the interaction can be shown by
+          measuring the cross section differentially with respect to observables.
+          Such a differential cross section is represented as an histogram.]
+      number: '8'
+    - kps: [The Rutherford cross section describes the elastic scattering of a charged
+          particle off the potential created by another charge.]
+      number: '9'
+    name: Representing Cross Sections
+  - image: rutherfordMott.png
+    lectures:
+    - kps: [' When the projectile is relativistic, its spin has to be taken into account,
+          this leads to the Mott cross section.', Helicity conservation suppresses
+          backward scattering.]
+      number: '10'
+    name: The Mott Cross Section
+  - image: CaFormFactor.png
+    lectures:
+    - kps: [If the scattering is off a charge distribution instead of a point-particle
+          then the matrix element is reduced by a factor called the form factor. The
+          form factor is the Fourier transform of the charge distribution. The cross
+          section is reduced by the square of the magnitude of the form factor., Looking
+          at the ratio between the point-like cross section and the actual cross section
+          one can infer the form of the charge distribution. Using this technique
+          one can measure the charge distribution in the nucleus of an atom.]
+      number: '10'
+    name: Nuclear Form Factors
+  - image: QFT.png
+    lectures:
+    - kps: [One can use the form factor technique to measure the charge distribution
+          of the proton or neutron. In this case we need to consider the magnetic
+          interaction due to the spin of the nucleon and one can measure both the
+          electric charge and the magnetic moment distribution inside the nucleons.,
+        If the energy of the scattering is large enough to be able to create and destroy
+          states we need to go from Quantum Mechanics to Quantum Field Theory. One
+          consequence is that forces are now mediated through the exchange of a particle.]
+      number: '11'
+    name: Scattering off Nucleons
+  - image: inelasticScatteringeP.png
+    lectures:
+    - kps: [If the energy is further increased much above the proton mass the proton
+          is changed after the scattering and the scattering is therefore non-elastic.
+          As a consequence we now need two parameter to describe the scattering.]
+      number: '12'
+    name: Inelastic Scattering
+  - image: HeraStructureFunction.png
+    lectures:
+    - kps: [In a deep inelastic experiment one collides a large energy electron with
+          a proton., 'There are several regimes in DIS: a) at low energies one sees
+          an elastic scattering of the electron off the proton. b)at moderate energies
+          the electron can transfer enough energy to excite the nucleon to excited
+          states (some of them are the $\Delta$ baryons). c) at higher energies the
+          electron recoils against point-like objects inside the proton.']
+      number: '12'
+    name: Deep Inelastic Scattering
+  - image: DISkinematics.png
+    lectures:
+    - kps: [The parton model stipulates that the proton is made up from constituent
+          particles called partons (we know now that they are quarks and gluons.,
+        The fact that the structure function follows the Callan-Gross relation is
+          a sign that the constituents in the nucleons are spin $1/2$ particles.]
+      number: '13'
+    - kps: [The constituents have a momentum fraction distribution described by parton
+          distribution functions., 'There are two types of quarks in a nucleon: the
+          valence quark that give the quantum numbers of the nucleon and the sea quarks
+          that come in pairs and don''t give a net contribution to the quantum numbers
+          of the nucleon.']
+      number: '14'
+    name: The Parton Model
+  - image: neutrinoNucleonStructureFunction.png
+    lectures:
+    - kps: [We can get information about the parton distribution functions using DIS
+          with different targets and using electrons or neutrinos in the collision.,
+        The total momentum fraction carried by the quarks in a nucleon is about 1/2.
+          Which means that the rest should be carried by particles with no electric
+          of weak charges. The rest of the momentum is carried by the gluons., 'We
+          need to introduce a new quantum number to accommodate for the $\Delta^{++}$
+          resonance in order to respect the Pauli exclusion principle.', 'Quarks and
+          gluons carry colour charges. Quarks can have one of three colours, antiquarks
+          carry anti-colour charges and gluons carry a colour-anticolour charge.',
+        'Gluons are the carriers of the strong interaction. Since gluons also carry
+          colour charges, they can interact between themselves, which photons cannot.
+          One consequence is that the strong coupling is increasing as the energy
+          lowers (which means that the distance increases).', 'Only colour neutral
+          objects can exist at a scale of $\simeq  1$ fm. ']
+      number: '14'
+    name: Quark Structure of the Nucleus
+  - image: Q2depPDF.png
+    lectures:
+    - kps: ['The parton distribution functions have a mild energy dependence, this
+          is due to the fact that at a larger energy we can resolve more of the cloud
+          of sea quarks and gluons present in the nucleon.']
+      number: '15'
+    name: Scaling Violation
+  - lectures: []
+    name: Appendix
 - name: Particles
   sections:
   - image: Wboth.png
@@ -168,155 +320,3 @@
   - image: baryonsCb.png
     lectures: []
     name: 'Appendix: Symmetries, spin and isospin'
-- name: Scattering
-  sections:
-  - image: inelastic1.png
-    lectures:
-    - kps: ['The higher the energy of the projectile, the deeper one can ``see''''
-          inside the structure of matter.']
-      number: '8'
-    name: Introduction
-  - image: beam.png
-    lectures:
-    - kps: [The cross section is a very useful quantity to characterise a physical
-          scattering process.]
-      number: '8'
-    name: Cross Sections
-  - image: histograms.png
-    lectures:
-    - kps: [More information about the dynamics of the interaction can be shown by
-          measuring the cross section differentially with respect to observables.
-          Such a differential cross section is represented as an histogram.]
-      number: '8'
-    - kps: [The Rutherford cross section describes the elastic scattering of a charged
-          particle off the potential created by another charge.]
-      number: '9'
-    name: Representing Cross Sections
-  - image: rutherfordMott.png
-    lectures:
-    - kps: [' When the projectile is relativistic, its spin has to be taken into account,
-          this leads to the Mott cross section.', Helicity conservation suppresses
-          backward scattering.]
-      number: '10'
-    name: The Mott Cross Section
-  - image: CaFormFactor.png
-    lectures:
-    - kps: [If the scattering is off a charge distribution instead of a point-particle
-          then the matrix element is reduced by a factor called the form factor. The
-          form factor is the Fourier transform of the charge distribution. The cross
-          section is reduced by the square of the magnitude of the form factor., Looking
-          at the ratio between the point-like cross section and the actual cross section
-          one can infer the form of the charge distribution. Using this technique
-          one can measure the charge distribution in the nucleus of an atom.]
-      number: '10'
-    name: Nuclear Form Factors
-  - image: QFT.png
-    lectures:
-    - kps: [One can use the form factor technique to measure the charge distribution
-          of the proton or neutron. In this case we need to consider the magnetic
-          interaction due to the spin of the nucleon and one can measure both the
-          electric charge and the magnetic moment distribution inside the nucleons.,
-        If the energy of the scattering is large enough to be able to create and destroy
-          states we need to go from Quantum Mechanics to Quantum Field Theory. One
-          consequence is that forces are now mediated through the exchange of a particle.]
-      number: '11'
-    name: Scattering off Nucleons
-  - image: inelasticScatteringeP.png
-    lectures:
-    - kps: [If the energy is further increased much above the proton mass the proton
-          is changed after the scattering and the scattering is therefore non-elastic.
-          As a consequence we now need two parameter to describe the scattering.]
-      number: '12'
-    name: Inelastic Scattering
-  - image: HeraStructureFunction.png
-    lectures:
-    - kps: [In a deep inelastic experiment one collides a large energy electron with
-          a proton., 'There are several regimes in DIS: a) at low energies one sees
-          an elastic scattering of the electron off the proton. b)at moderate energies
-          the electron can transfer enough energy to excite the nucleon to excited
-          states (some of them are the $\Delta$ baryons). c) at higher energies the
-          electron recoils against point-like objects inside the proton.']
-      number: '12'
-    name: Deep Inelastic Scattering
-  - image: DISkinematics.png
-    lectures:
-    - kps: [The parton model stipulates that the proton is made up from constituent
-          particles called partons (we know now that they are quarks and gluons.,
-        The fact that the structure function follows the Callan-Gross relation is
-          a sign that the constituents in the nucleons are spin $1/2$ particles.]
-      number: '13'
-    - kps: [The constituents have a momentum fraction distribution described by parton
-          distribution functions., 'There are two types of quarks in a nucleon: the
-          valence quark that give the quantum numbers of the nucleon and the sea quarks
-          that come in pairs and don''t give a net contribution to the quantum numbers
-          of the nucleon.']
-      number: '14'
-    name: The Parton Model
-  - image: neutrinoNucleonStructureFunction.png
-    lectures:
-    - kps: [We can get information about the parton distribution functions using DIS
-          with different targets and using electrons or neutrinos in the collision.,
-        The total momentum fraction carried by the quarks in a nucleon is about 1/2.
-          Which means that the rest should be carried by particles with no electric
-          of weak charges. The rest of the momentum is carried by the gluons., 'We
-          need to introduce a new quantum number to accommodate for the $\Delta^{++}$
-          resonance in order to respect the Pauli exclusion principle.', 'Quarks and
-          gluons carry colour charges. Quarks can have one of three colours, antiquarks
-          carry anti-colour charges and gluons carry a colour-anticolour charge.',
-        'Gluons are the carriers of the strong interaction. Since gluons also carry
-          colour charges, they can interact between themselves, which photons cannot.
-          One consequence is that the strong coupling is increasing as the energy
-          lowers (which means that the distance increases).', 'Only colour neutral
-          objects can exist at a scale of $\simeq  1$ fm. ']
-      number: '14'
-    name: Quark Structure of the Nucleus
-  - image: Q2depPDF.png
-    lectures:
-    - kps: ['The parton distribution functions have a mild energy dependence, this
-          is due to the fact that at a larger energy we can resolve more of the cloud
-          of sea quarks and gluons present in the nucleon.']
-      number: '15'
-    name: Scaling Violation
-  - lectures: []
-    name: Appendix
-- name: Nuclear
-  sections:
-  - image: BindingEnergyAll.png
-    lectures:
-    - kps: [Protons and Neutrons are collectively called Nucleons, Nuclei are characterised
-          by their Atomic and Mass numbers, The binding energies are calculated with
-          the semi-epirical mass formula]
-      number: '1'
-    - kps: [The nuclear force is short range and creates a more or less constant potential
-          within the nucleus volume., Nucleons at the boundary of the nucleus volume
-          have fewer neighbours and therefore their binding energy is smaller., Protons
-          in the nucleus experience a repulsive Coulomb force due to their positive
-          charges., 'Protons and nucleons prefer to be in pairs in the nucleons, it
-          gives rise to the pairing term.']
-      number: '2'
-    name: Nuclear Masses and Binding Energies
-  - image: decayConstant.png
-    lectures:
-    - kps: [Nuclei can exchange a neutron for a proton in a $\beta^-$ decay., Nuclei
-          can exchange a proton for a neutron in a $\beta^+$ decay., Nuclei can capture
-          an electron in the atom to change a proton in a neutron., The $^4He$ nucleus
-          is very stable and can be emitted by an unstable nucleus. Such a decay is
-          called $\alpha$ decay.]
-      number: '3'
-    - kps: [Heavy nuclei can decay spontaneously into smaller parts., A suitable arrangement
-          of fissible material and moderator can sustain a controlled chain reaction.]
-      number: '4'
-    name: Nuclear Decay
-  - image: firstExcitedStateEnergyWithLegend.png
-    lectures:
-    - kps: [The spin-orbit interaction in the nucleus is much stronger than in the
-          hydrogen atom and has opposite sign., 'The shell model can explain the magic
-          numbers and predict spin and parity of ground state of nuclei, as well as
-          some excited states.']
-      number: '5'
-    - kps: [Nuclei in excited states can relax to lower lying states through the emission
-          of photons. This process is called $\gamma$-radiation.]
-      number: '6'
-    name: The Shell Model
-  - lectures: []
-    name: Advanced topics

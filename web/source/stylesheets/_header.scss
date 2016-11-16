@@ -1,7 +1,21 @@
 .pagehead {
+  overflow:visible;
+  background:url("/images/header-img.jpg");
+  background-position:center;
   background-color:white;
   text-align:center;
-  padding:2em 0;
+  padding:4em 0;
+  margin:-1em;
+  color:black;
+}
+
+.pagehead h1 {
+  padding-bottom:1em;
+}
+
+.search {
+  height:3em;
+  overflow:visible;
 }
 
 .search form input {
@@ -13,10 +27,13 @@
 }
 
 .search-output {
+  overflow:visible;
   margin:auto;
   width:90%;
   background-color:white;
   border-radius:2px;
+  position:relative;
+  z-index:9999;
 }
 
 .search-output li {
