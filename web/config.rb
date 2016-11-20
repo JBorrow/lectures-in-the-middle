@@ -29,11 +29,11 @@ data.lectures.each do |lec|
   proxy "/lectures/Lecture_#{CGI::escape(lec.name.tr(":", ""))}.html", "/lectures/lecture_template.html", :locals => { :all => data.lectures, :lec => lec, :subtitle => lec.name.to_s}, :subtitle => lec.name.to_s
 end
 
-data.extra.each do |info|
-  proxy "/extra/#{CGI::escape(info.name.tr(":", ""))}.html", "/extra/template.html", :locals => {:info => data.extra, :sec => info, :subtitle => info.name.to_s}, :subtitle => info.name.to_s
+data.interactive.each do |info|
+  proxy "/interactive/#{info.url}.html", "/interactive/template.html", :locals => {:info => data.interactive, :sec => info, :subtitle => info.name.to_s}, :subtitle => info.name.to_s
 end
 
-ignore '/extra/template.html.haml'
+ignore '/interactive/template.html.haml'
 ignore '/notes/template.html.haml'
 ignore '/lectures/lecture_template.html.haml'
 # General configuration

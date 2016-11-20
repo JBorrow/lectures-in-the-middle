@@ -1,0 +1,42 @@
+---
+title: Interactive 
+---
+
+- current_page.data.subtitle = subtitle
+
+.sm-flex.flex-auto.mxn2.container
+  .flex-auto.p2.lg-col-9.actual-content
+    =partial "interactive/_#{sec.url}.html"
+
+    - previous_sec = ""
+    - next_item = ""
+    - previous = ""
+    - last_was_it = false
+    - data.interactive.each do |loop_sec|
+      - if loop_sec == sec
+        - last_was_it = true
+        - previous = previous_sec
+      - elsif last_was_it
+        - next_item = loop_sec
+        - break
+      - else
+        - previous_sec = loop_sec
+    
+    .previous-next-buttons
+    - if previous != ""
+      .btn.previous
+        = link_to "Previous", "interactive/#{previous.url}.html"
+    - if next_item != ""
+      .btn.next
+        = link_to "Next", "interactive/#{next_item.url}.html"
+
+  .flex-auto.p2.lg-col-3.sidebar
+    %h2 Interactive 
+    %ul.section-list.list-reset
+      - data.interactive.each do |loop_sec|
+        - if loop_sec == sec
+          - this_class = "active"
+        - else
+          - this_class = "inactive"
+        %li{:class => this_class}= link_to loop_sec.name.to_s, "/interactive/#{loop_sec.url}.html"
+

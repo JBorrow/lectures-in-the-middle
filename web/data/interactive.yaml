@@ -1,0 +1,14 @@
+- name: 'Jupyter Notebooks'
+  img: 'jupyter.jpg'
+  information: 'How to use the Jupyter notebooks.'
+  url: 'jupyter'
+
+- name: 'Nuclear Decay'
+  img: 'decay.jpg'
+  information: "Quick interactive experience on the Decay Equation. Accompanies a Jupyter notebook."
+  url: 'decay'
+
+- name: 'The Shell Model'
+  img: 'shells.jpg'
+  information: 'Interactive exhibit that helps understanding of the shell model.'
+  url: 'shells'

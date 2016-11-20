@@ -1,0 +1,104 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.min.js"></script>
+<script>
+function sliderVals() {
+	// Find out the current values of each of the sliders
+	return { 
+		na: $('#na').val(),
+		la: $('#la').val(),
+		lb: $('#lb').val(),
+	}
+}
+
+function timeEvo(params, tmax=10., n=1000) {
+	// params is object array defined in sliderVals
+	// tmax = max time evolution
+	// n = number of timesteps
+
+	var dt = tmax/n;
+	var times = numeric.linspace(0, tmax, n);
+	var Na = [params.na];
+	var Nb = [0.];
+	var Nc = [0.];
+
+	for (i=1; i < n; i++) {
+		var time = times[i];
+		Na[i] = Na[i-1] - params.la*dt*Na[i-1]; // A->B
+		Nb[i] = Nb[i-1] + params.la*Na[i-1]*dt - params.lb*Nb[i-1]*dt; // B->C
+		Nc[i] = Nc[i-1] + params.lb*Nb[i-1]*dt
+	}
+
+	return {
+		times, Na, Nb, Nc,
+	}
+}
+
+function makePlot(data) {
+	var c = data.times.map(function (e, i) {
+    	return [[data.times[i], data.Na[i]],[data.times[i], data.Nb[i]],[data.times[i], data.Nc[i]]];
+	});
+	var options = {
+		legend: {
+			show: true,
+		},
+	}
+	
+	c = numeric.transpose(c);  // sorry this is lazy...  that map function is v. complicated!
+
+	var plottingData = [
+		{label:"Number of A atoms", data:c[0]},
+		{label:"Number of B atoms", data:c[1]},
+		{label:"Number of C atoms", data:c[2]},
+	];
+	console.log(plottingData);
+	$.plot("#placeholder", plottingData);
+}
+
+// Actual script
+
+var params;
+var data;
+
+$(document).ready(function() {
+	$("#submit").click(function() {
+		params = sliderVals();
+		data = timeEvo(params);
+		makePlot(data);
+	});
+});
+</script>
+<h1> Radioactive Decay </h1>
+
+	<p>This section teaches you about the decay equation:
+	$$
+		\frac{\mathrm{d}N}{\mathrm{d}t} = -\lambda N~,
+	$$
+	where $N$ is the number of atoms, and $\lambda$ is the 'decay constant'.
+	</p>
+
+	<p>Here we study the process where atom A (yellow) decays to atom B (blue) which eventually decays to atom C (red) which is the final product. Have a play with the numbers.</p>
+
+	<form>
+		<div class='form-group row p2'>
+			<label for="na" class='col-sm-2'>Number of initial A atoms</label>
+			<input id="na" type='number' class='col-sm-10'></input>
+		</div>
+		<div class='form-group row p2'>
+			<label for="la" class='col-sm-2'>$\lambda_A$</label>
+			<input class="lambda col-sm-10" id="la" type='number'></input>
+		</div>
+		<div class='form-group row p2'>
+			<label for="lb" class='col-sm-2'>$\lambda_B$</label>
+			<input class="lambda col-sm-10" id="lb" type='number'></input>
+		</div>
+		<div class='form-group row'>
+
+			<br/>
+
+			<div id="submit" style='background-color:#DDD; padding:1em;'>Submit</button>
+
+		</div>
+	</form>
+	<br/>
+	<div id="placeholder" class="demo-placeholder" style="width:auto;height:600px;"></div>
+</div>
