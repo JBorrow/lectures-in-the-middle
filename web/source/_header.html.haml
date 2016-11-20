@@ -3,6 +3,6 @@
     %h1= web_title
 
   .search
-    %form
+    %form{:onsubmit => "return false;"}
       %input.search-input#search-input{:placeholder => "Search all of the course content..."}
     %ul.list-reset.search-output#search-output

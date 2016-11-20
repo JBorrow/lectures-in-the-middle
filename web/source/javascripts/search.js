@@ -10,7 +10,7 @@ $.ajax({
 	lunrDict = data['docs'];
 
 
-	document.getElementById('search-input').addEventListener('keydown', function() {
+	document.getElementById('search-input').addEventListener('keydown', function(e) {
 	  result = lunrIndex.search(document.getElementById('search-input').value);
 
 	  final_string = "";
@@ -20,6 +20,12 @@ $.ajax({
 	  } else {
 		  do_length = result.length;
 	  }
+
+      key = e.which || e.keyCode;
+
+      if (key === 13) {
+        window.location.href = lunrDict[result[0].ref].url;
+      }
 
 	  for (i=0; i < do_length; i++) {
         dictItem = lunrDict[result[i].ref];
