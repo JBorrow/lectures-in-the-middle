@@ -1,8 +1,9 @@
-%ul
-  - [["index.html", "Home"],
-     ["sections.html", "Notes"],
-     ["alllectures.html", "Lectures"],
-     ["extra.html", "Interactive"],
-     ["glossary.html", "Glossary"],].each do |sec|
-    =nav_link(sec[1], sec[0])
+.container
+  %ul
+    - [["index.html", "Home"],
+       ["sections.html", "Notes"],
+       ["alllectures.html", "Lectures"],
+       ["extra.html", "Interactive"],
+       ["glossary.html", "Glossary"],].each do |sec|
+      =nav_link(sec[1], sec[0])
 

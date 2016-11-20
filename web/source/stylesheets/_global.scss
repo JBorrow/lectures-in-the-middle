@@ -1,8 +1,13 @@
 // VARIABLES
 
+$break: 40em;
+
 // // Borders
 
 $bordercolor:#CCCCCC;
+$shadowcolor: #CCCCCC;
+$shadowoff: 10px;
+$shadow: 1px;
 
 // // Headings
 
@@ -11,7 +16,12 @@ $heading_a_color:#000000;
 // BASE
 
 html * {
-  font-family:sans-serif;
+  font-family:'Karla', sans-serif;
+}
+
+.container {
+  max-width:70em;
+  margin:auto;
 }
 
 // // Links
@@ -30,11 +40,43 @@ a {
   border-left: 1px solid $bordercolor;
 }
 
+@media(max-width:$break) {
+  .sidebar {
+    border-left:0;
+	margin-top:2em;
+  }
+}
+
 // // Headings
 
 @for $i from 1 through 6 {
   a>h#{$i} , a>.h#{$i} {
     color:$heading_a_color;
   }
+}
+
+
+// // Images
+
+.figure img {
+  width:100%;
+}
+
+.subfigures p img {
+  float:left;
+}
+
+// // Kps
+
+.keypoints {
+  padding:2em;
+  border:1px solid $bordercolor;
+  border-radius:2px;
+  box-shadow: $shadow $shadow $shadowoff $shadowcolor;
+  margin-top:3em;
+}
+
+.keypoints h2 {
+  margin-top:0;
 }
 
