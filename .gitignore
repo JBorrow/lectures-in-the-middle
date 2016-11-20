@@ -3,5 +3,6 @@ compiled
 parser.out
 parsetab.py
 tex/
+images/
 web/.sass-cache
 web/source/images
