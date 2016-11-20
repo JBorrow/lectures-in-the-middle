@@ -1,17 +1,36 @@
+- name: Introduction
+  sections:
+  - image: hcone.png
+    lectures:
+    - kps: ['In nuclear and particle physics masses, length and time can be expressed
+          in terms on energies.']
+      number: '1'
+    name: Units
+  - image: images/decayKinematics.png
+    lectures:
+    - kps: ['The Minkowsky product is invariant under Lorentz transformation, that
+          is it is the same in every frames.']
+      number: '1'
+    name: Kinematics
+  - image: parityTransformation.png
+    lectures:
+    - kps: [The strong and electro-magnetic forces conserve parity., Parity and angular
+          momentum conservation have to be considered to decide which decay are allowed
+          and which are not.]
+      number: '1'
+    name: Discrete symmetries
 - name: Nuclear
   sections:
   - image: BindingEnergyAll.png
     lectures:
     - kps: [Protons and Neutrons are collectively called Nucleons, Nuclei are characterised
           by their Atomic and Mass numbers, The binding energies are calculated with
-          the semi-epirical mass formula]
-      number: '1'
-    - kps: [The nuclear force is short range and creates a more or less constant potential
-          within the nucleus volume., Nucleons at the boundary of the nucleus volume
-          have fewer neighbours and therefore their binding energy is smaller., Protons
-          in the nucleus experience a repulsive Coulomb force due to their positive
-          charges., 'Protons and nucleons prefer to be in pairs in the nucleons, it
-          gives rise to the pairing term.']
+          the semi-epirical mass formula, The nuclear force is short range and creates
+          a more or less constant potential within the nucleus volume., Nucleons at
+          the boundary of the nucleus volume have fewer neighbours and therefore their
+          binding energy is smaller., Protons in the nucleus experience a repulsive
+          Coulomb force due to their positive charges., 'Protons and nucleons prefer
+          to be in pairs in the nucleons, it gives rise to the pairing term.']
       number: '2'
     name: Nuclear Masses and Binding Energies
   - image: decayConstant.png
@@ -157,7 +176,7 @@
     - kps: ['All vertices in a Feynamn diagram must conserve charge, lepton numbers
           and baryon number.']
       number: '16'
-    name: Feynamn diagrams
+    name: Feynman diagrams
   - image: Charmonium.png
     lectures:
     - kps: [' Bound states of a charm quark-antiquark are called charmonium, a bound
