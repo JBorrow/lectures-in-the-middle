@@ -1,11 +1,11 @@
 .pagehead {
   overflow:visible;
-  background:url("/images/header-img.jpg");
-  background-position:center;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 59%, rgba(255, 255, 255, 0.65) 100%), url('/images/header-img.jpg') no-repeat center;
+  background-size:cover;
   background-color:white;
   text-align:center;
   padding:4em 0;
-  margin:-1em;
+  margin:-1em -1em 1em -1em;
   color:black;
 }
 

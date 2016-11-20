@@ -26,6 +26,10 @@ a {
   border-color:$bordercolor;
 }
 
+.sidebar {
+  border-left: 1px solid $bordercolor;
+}
+
 // // Headings
 
 @for $i from 1 through 6 {
