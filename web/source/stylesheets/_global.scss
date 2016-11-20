@@ -13,6 +13,11 @@ $shadow: 1px;
 
 $heading_a_color:#000000;
 
+// // Navbar 
+
+$navbg: #000000;
+$navtxt: #FFFFFF;
+
 // BASE
 
 html * {
@@ -62,13 +67,19 @@ a {
   width:100%;
 }
 
+.figure p, .subfigures p {
+  display:inline-block;
+  font-size:0.9em;
+  font-weight:bold;
+}
+
 .subfigures p img {
   float:left;
 }
 
 // // Kps
 
-.keypoints {
+.keypoints, .questions {
   padding:2em;
   border:1px solid $bordercolor;
   border-radius:2px;
@@ -76,7 +87,26 @@ a {
   margin-top:3em;
 }
 
-.keypoints h2 {
+.keypoints h2, .questions h2 {
   margin-top:0;
 }
 
+// // Tables
+
+table {
+  margin:auto;
+  border-collapse:collapse;
+}
+
+td {
+  padding:0.5em;
+}
+
+th {
+  border-bottom:1px solid $bordercolor;
+  padding:0.5em;
+}
+
+tr:nth-child(even) {
+  background-color:lighten($navbg, 90);
+}
