@@ -352,7 +352,7 @@ for compiled in os.listdir(compile_dir):
     if compiled[-4:] == 'yaml':
         shutil.copyfile(compile_dir + compiled, op_data_dir + compiled)
     elif compiled[-4:] == 'html':
-        if compiled[0:7] == '_Lecture':
+        if compiled[0:8] == '_Lecture':
             shutil.copyfile(compile_dir + compiled, op_lectures_dir+ compiled)
         else:
             shutil.copyfile(compile_dir + compiled, op_notes_dir + compiled)
