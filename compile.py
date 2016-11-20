@@ -17,13 +17,13 @@ tex_dir = './tex/'
 image_dir = './images/'
 web_dir = './web/'
 args = sys.argv
-own_files = ['Nuclear.tex', 'Scattering.tex', 'Particles.tex']
+own_files = ['Introduction.tex', 'Nuclear.tex', 'Scattering.tex', 'Particles.tex']
 
 def getUID():
     return "{:0<10}".format(random.randint(0, 1e10))
 
 def register(key,value,uid):
-    for k,dic in [('keypoint',lexer.keypoints),('image',lexer.images)]:        
+    for k,dic in [('keypoint',lexer.keypoints),('image',lexer.images),('question',lexer.questions)]:        
         if key==k:
             if not lexer.current['section'] in dic.keys():
                 dic[lexer.current['section']]=[]
@@ -44,6 +44,8 @@ def register(key,value,uid):
 tokens=(
     'KEY',
     'TEXT',
+    'PDFONLYBEGIN',
+    'PDFONLYEND',
 )
 
 
@@ -55,7 +57,17 @@ def t_KEY(t):
     register(key,value,uid)
     t.value=(key,value,uid)
     return t
-    
+
+def t_PDFONLYBEGIN(t):
+    r'%%@pdfonly(?P<txt>.*?)'
+    t.value=('PDFONLYBEGIN',lexer.lexmatch.group('txt'))
+    return t
+
+def t_PDFONLYEND(t):
+    r'%%@endpdfonly'
+    t.value=('PDFONLYEND',lexer.lexmatch.group('txt'))
+    return t
+
 def t_TEXT(t):
     r'(?:(?:\\%)|(?:[^%\\]+)|(?:\\[^%])|(%[^%])|(?:%%[^\\]))+'
     t.value=('TEXT',t.value)
@@ -74,12 +86,16 @@ def p_blocksnone(p):
     'blocks : '
     p[0] = []
 
+def p_pdfonly(p):
+    'PDFONLY : PDFONLYBEGIN blocks PDFONLYEND'
+    p[0] = ('PDFONLY',p[2])    
+    
 def p_block(p):
     '''block : TEXT
              | KEY
+             | PDFONLY
 '''
     p[0] = p[1]
-
 
 def insertLectureDivs(origTxt):
     txt=str(origTxt)
@@ -93,13 +109,30 @@ def insertLectureDivs(origTxt):
         txt=txt.replace(comment,div)
     return txt
 
-def getKeyPointsHTML(key):
+def format_classes(classes):
+    return classes.join(' ')
+
+def getKeyPointsHTML(key, extra_class=[]):
+    classes = format_classes(extra_class + ['keypoints'])
     if key not in lexer.keypoints.keys():
         return ''
     else:
-        txt='<div class="keypoints">\n<h2>\nKey Points\n</h2>'
+        txt='<div class="{}">\n<h2>\nKey Points\n</h2>'.format(classes)
         for kp in lexer.keypoints[key]:
             div='''<div class="key-point">{kptxt}</div>'''.format(
+                kptxt=pypandoc.convert(kp,'html',format='tex'))
+            txt+=div
+        txt+='</div>'
+        return txt
+
+def getQuestionsHTML(key, extra_class=[]):
+    classes = format_classes(extra_class + ['questions'])
+    if key not in lexer.questions.keys():
+        return ''
+    else:
+        txt='<div class="{}">\n<h2>\nQuick Questions\n</h2>'.format(classes)
+        for kp in lexer.questions[key]:
+            div='''<div class="question">{kptxt}</div>'''.format(
                 kptxt=pypandoc.convert(kp,'html',format='tex'))
             txt+=div
         txt+='</div>'
@@ -130,8 +163,9 @@ def process(fileName):
 
     lexer.current={'section':'begining','lecture':'begining'}
     lexer.keypoints={}
+    lexer.questions={}
     lexer.images={}
-    lexer.uids={ 'section':{}, 'lecture':{} , 'keypoint':{}, 'image':{}}
+    lexer.uids={ 'section':{}, 'lecture':{} , 'keypoint':{}, 'image':{}, 'question':{}}
     lexer.begin={'section':{}, 'lecture':{}}
     lexer.end={'section':{}, 'lecture':{} }
     lexer.sections=[]
@@ -150,6 +184,8 @@ def process(fileName):
     for token in result:
         if token[0]=="TEXT":
             fullTxt+=token[1]
+        elif token[0]=='PDFONLY':
+            pass   #this is ignored here 
         else:
             fullTxt+="\nMDCOMMENT"+token[2]+"\n"
 
@@ -195,6 +231,7 @@ def process(fileName):
         txt=match.group('txt')
         txt=insertLectureDivs(txt)
         txt+=getKeyPointsHTML(sec)
+        txt+=getQuestionsHTML(sec)
         with open(compile_dir + '_'+sec.replace(' ','_')+'.html','w') as of:
             tidy_options = {
                 "doctype" : "omit",
@@ -231,8 +268,9 @@ def process(fileName):
 
         match=re.search(regex ,html,re.MULTILINE+re.DOTALL)
         
-        txt=getKeyPointsHTML(lec)
+        txt=getKeyPointsHTML(lec, extra_class=['lecture-kps'])
         txt+=match.group('txt')
+        txt+=getQuestionsHTML(lec, extra_class=['lecture-qs'])
         with open(compile_dir + '_Lecture_'+lec+'.html','w') as of:
             tidy_options = {
                 "doctype" : "omit",
