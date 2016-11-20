@@ -8,7 +8,6 @@ $.ajax({
   success: function(data) {
     lunrIndex = lunr.Index.load(data['index']);
 	lunrDict = data['docs'];
-	console.log(lunrDict);
 
 
 	document.getElementById('search-input').addEventListener('keydown', function() {
