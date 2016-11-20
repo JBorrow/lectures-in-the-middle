@@ -110,7 +110,7 @@ def insertLectureDivs(origTxt):
     return txt
 
 def format_classes(classes):
-    return classes.join(' ')
+    return ' '.join(classes)
 
 def getKeyPointsHTML(key, extra_class=[]):
     classes = format_classes(extra_class + ['keypoints'])
