@@ -157,8 +157,10 @@ def run_pandoc(content, bibliography=""):
     return OutputData
 
 lexer=lex.lex()
+lastLecture=0
 
-def process(fileName):    
+def process(fileName):
+    global lastLecture
     # prepare lexer state
 
     lexer.current={'section':'begining','lecture':'begining'}
@@ -252,8 +254,14 @@ def process(fileName):
             images=lexer.images[sec]
         else:
             images=None
-        
-        leclist=[ {'number':str(i),'kps':lecs[str(i)]} for i in sorted([int(k) for k in lecs.keys()]) ]
+
+        lecnbrs=sorted([int(k) for k in lecs.keys() if not k=='begining' ])
+        if lecnbrs:
+            lastLecture=lecnbrs[-1]
+        leclist=[ {'number':str(i),'kps':lecs[str(i)]} for i in lecnbrs ]
+        # treat the case of split lecture
+        if 'begining' in lecs.keys():    
+            leclist.insert(0,{'number':str(lastLecture),'kps':lecs['begining']})
         if images:
             seclist.append({'lectures':leclist,'name':sec,'image':images[0]})
         else:
@@ -262,16 +270,33 @@ def process(fileName):
 
     leclist=[]
     for lec in lexer.lectures:
-        regex= r'<!-- {} -->'.format(lexer.begin['lecture'][lec])
+        firstSplit,lastSplit=False,False
+        if lec==lexer.lectures[0] and lec not in lexer.begin['lecture'].keys():
+            # use the first section as the begining of the lecture
+            firstSplit=True
+            labelBegin=lexer.begin['section'][lexer.sections[0]]
+        else:
+            labelBegin=lexer.begin['lecture'][lec]
+        if lec==lexer.lectures[-1] and lec not in lexer.end['lecture'].keys():
+            # use the first section as the begining of the lecture
+            lastSplit=True
+            labelEnd=lexer.end['section'][lexer.sections[-1]]
+        else:
+            labelEnd=lexer.end['lecture'][lec]
+        regex= r'<!-- {} -->'.format(labelBegin)
         regex+='(?P<txt>.*?)'
-        regex+=r'<!-- {} -->'.format(lexer.end['lecture'][lec])
+        regex+=r'<!-- {} -->'.format(labelEnd)
 
         match=re.search(regex ,html,re.MULTILINE+re.DOTALL)
         
         txt=getKeyPointsHTML(lec, extra_class=['lecture-kps'])
         txt+=match.group('txt')
         txt+=getQuestionsHTML(lec, extra_class=['lecture-qs'])
-        with open(compile_dir + '_Lecture_'+lec+'.html','w') as of:
+        if firstSplit:
+            rwaccess='a'
+        else:
+            rwaccess='w'
+        with open(compile_dir + '_Lecture_'+lec+'.html',rwaccess) as of:
             tidy_options = {
                 "doctype" : "omit",
                 "show-body-only": "yes",           
