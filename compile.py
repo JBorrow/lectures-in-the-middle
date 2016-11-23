@@ -406,15 +406,15 @@ for compiled in os.listdir(compile_dir):
         print("Unable to classify file {}{}".format(compile_dir, compiled))
         
 ### Middleman stuff
+if config.has_option('middleman','run') and config.get('middleman','run')=='yes':
+    os.chdir(web_dir)
 
-os.chdir(web_dir)
+    try:
+        print("Removing old build files")
+        shutil.rmtree("./build/")
+    except FileNotFoundError:
+        # no old build files
+        pass
 
-try:
-    print("Removing old build files")
-    shutil.rmtree("./build/")
-except FileNotFoundError:
-    # no old build files
-    pass
-
-print("Building new middleman files")
-os.system("bundle exec middleman build")
+    print("Building new middleman files")
+    os.system("bundle exec middleman build")
