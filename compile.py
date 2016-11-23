@@ -12,12 +12,19 @@ import ltmd
 import yaml
 import pypandoc
 
-compile_dir = './compiled/'
-tex_dir = './tex/'
-image_dir = './images/'
-web_dir = './web/'
+import configparser
+
+config = configparser.ConfigParser()
+if len(sys.argv)<2:
+    config.read('litm.cfg')
+else:
+    config.read(sys.argv[1])
+compile_dir = config.get('path','compile_dir')
+tex_dir = config.get('path','tex_dir')
+image_dir = config.get('path','image_dir')
+web_dir = config.get('path','web_dir')
 args = sys.argv
-own_files = ['Introduction.tex', 'Nuclear.tex', 'Scattering.tex', 'Particles.tex']
+own_files = [ f.strip() for f in config.get('path','own_files').split(',')]
 
 def getUID():
     return "{:0<10}".format(random.randint(0, 1e10))
@@ -267,7 +274,13 @@ def process(fileName):
         else:
             seclist.append({'lectures':leclist,'name':sec})
 
+        if sec in lexer.keypoints.keys():
+            items=['\\item {0}'.format(kp) for kp in lexer.keypoints[sec]]
+            with open(compile_dir+"/{0}_keypoints.tex".format(sec.replace(' ','-')),'w') as kptex:
+                kptex.write("\n".join(items))
 
+
+            
     leclist=[]
     for lec in lexer.lectures:
         firstSplit,lastSplit=False,False
@@ -373,27 +386,35 @@ for img in os.listdir(image_dir):
     shutil.copyfile(image_dir + img, op_img_dir + img)
 
 print("Copying Compiled Files...")
+
+dispatch=[]
+for ftype in config.options('files'):
+    dispatch.append(
+        (re.compile(config.get('files',ftype)), config.get('destination',ftype) )
+    )
+
+
 for compiled in os.listdir(compile_dir):
-    if compiled[-4:] == 'yaml':
-        shutil.copyfile(compile_dir + compiled, op_data_dir + compiled)
-    elif compiled[-4:] == 'html':
-        if compiled[0:8] == '_Lecture':
-            shutil.copyfile(compile_dir + compiled, op_lectures_dir+ compiled)
-        else:
-            shutil.copyfile(compile_dir + compiled, op_notes_dir + compiled)
-    else:
+    found=False
+    for regex,dest in dispatch:
+        if regex.match(compiled):
+            found=True
+            print("sending {} to {}".format( compiled,dest ))
+            shutil.copyfile(compile_dir +'/'+  compiled, dest +'/' + compiled)
+            break
+    if not found:
         print("Unable to classify file {}{}".format(compile_dir, compiled))
-
+        
 ### Middleman stuff
+if config.has_option('middleman','run') and config.get('middleman','run')=='yes':
+    os.chdir(web_dir)
 
-os.chdir(web_dir)
+    try:
+        print("Removing old build files")
+        shutil.rmtree("./build/")
+    except FileNotFoundError:
+        # no old build files
+        pass
 
-try:
-    print("Removing old build files")
-    shutil.rmtree("./build/")
-except FileNotFoundError:
-    # no old build files
-    pass
-
-print("Building new middleman files")
-os.system("bundle exec middleman build")
+    print("Building new middleman files")
+    os.system("bundle exec middleman build")
