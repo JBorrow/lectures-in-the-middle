@@ -274,7 +274,13 @@ def process(fileName):
         else:
             seclist.append({'lectures':leclist,'name':sec})
 
+        if sec in lexer.keypoints.keys():
+            items=['\\item {0}'.format(kp) for kp in lexer.keypoints[sec]]
+            with open(compile_dir+"/{0}_keypoints.tex".format(sec.replace(' ','-')),'w') as kptex:
+                kptex.write("\n".join(items))
 
+
+            
     leclist=[]
     for lec in lexer.lectures:
         firstSplit,lastSplit=False,False
