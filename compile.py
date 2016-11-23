@@ -380,17 +380,25 @@ for img in os.listdir(image_dir):
     shutil.copyfile(image_dir + img, op_img_dir + img)
 
 print("Copying Compiled Files...")
-for compiled in os.listdir(compile_dir):
-    if compiled[-4:] == 'yaml':
-        shutil.copyfile(compile_dir + compiled, op_data_dir + compiled)
-    elif compiled[-4:] == 'html':
-        if compiled[0:8] == '_Lecture':
-            shutil.copyfile(compile_dir + compiled, op_lectures_dir+ compiled)
-        else:
-            shutil.copyfile(compile_dir + compiled, op_notes_dir + compiled)
-    else:
-        print("Unable to classify file {}{}".format(compile_dir, compiled))
 
+dispatch=[]
+for ftype in config.options('files'):
+    dispatch.append(
+        (re.compile(config.get('files',ftype)), config.get('destination',ftype) )
+    )
+
+
+for compiled in os.listdir(compile_dir):
+    found=False
+    for regex,dest in dispatch:
+        if regex.match(compiled):
+            found=True
+            print("sending {} to {}".format( compiled,dest ))
+            shutil.copyfile(compile_dir +'/'+  compiled, dest +'/' + compiled)
+            break
+    if not found:
+        print("Unable to classify file {}{}".format(compile_dir, compiled))
+        
 ### Middleman stuff
 
 os.chdir(web_dir)
