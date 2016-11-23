@@ -24,7 +24,7 @@ $.ajax({
       key = e.which || e.keyCode;
 
       if (key === 13) {
-        window.location.href = lunrDict[result[0].ref].url;
+        window.location.href = "./" + lunrDict[result[0].ref].url;
       }
 
 	  for (i=0; i < do_length; i++) {
