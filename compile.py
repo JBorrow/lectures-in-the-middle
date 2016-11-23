@@ -12,12 +12,19 @@ import ltmd
 import yaml
 import pypandoc
 
-compile_dir = './compiled/'
-tex_dir = './tex/'
-image_dir = './images/'
-web_dir = './web/'
+import configparser
+
+config = configparser.ConfigParser()
+if len(sys.argv)<2:
+    config.read('litm.cfg')
+else:
+    config.read(sys.argv[1])
+compile_dir = config.get('path','compile_dir')
+tex_dir = config.get('path','tex_dir')
+image_dir = config.get('path','image_dir')
+web_dir = config.get('path','web_dir')
 args = sys.argv
-own_files = ['Introduction.tex', 'Nuclear.tex', 'Scattering.tex', 'Particles.tex']
+own_files = [ f.strip() for f in config.get('path','own_files').split(',')]
 
 def getUID():
     return "{:0<10}".format(random.randint(0, 1e10))
