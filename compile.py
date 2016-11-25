@@ -304,35 +304,36 @@ def process(fileName):
         regex= r'<!-- {} -->'.format(labelBegin)
         regex+='(?P<txt>.*?)'
         regex+=r'<!-- {} -->'.format(labelEnd)
-
+        # there is no match if this is the lastLecture of the last chapter and
+        # there is no content before the first section o this chapter
         match=re.search(regex ,html,re.MULTILINE+re.DOTALL)
-        
-        txt=getKeyPointsHTML(lec, extra_class=['lecture-kps'])
-        txt+=match.group('txt')
-        txt+=getQuestionsHTML(lec, extra_class=['lecture-qs'])
-        if firstSplit:
-            rwaccess='a'
-            print ("adding to existing lecture...")
-        else:
-            rwaccess='w'
-        with open(compile_dir + '_Lecture_'+lec+'.html',rwaccess) as of:
-            tidy_options = {
-                "doctype" : "omit",
-                "show-body-only": "yes",           
-            }        
-            th,errs=tidy.tidy_document(txt, tidy_options)
-            of.write(th)
+        if match:
+            txt=getKeyPointsHTML(lec, extra_class=['lecture-kps'])
+            txt+=match.group('txt')
+            txt+=getQuestionsHTML(lec, extra_class=['lecture-qs'])
+            if firstSplit:
+                rwaccess='a'
+                print ("adding to existing lecture...")
+            else:
+                rwaccess='w'
+            with open(compile_dir + '_Lecture_'+lec+'.html',rwaccess) as of:
+                tidy_options = {
+                    "doctype" : "omit",
+                    "show-body-only": "yes",           
+                }        
+                th,errs=tidy.tidy_document(txt, tidy_options)
+                of.write(th)
 
-        if lec in lexer.images.keys():
-            images=lexer.images[lec]
-        else:
-            images=None
-        
-        
-        if images:
-            leclist.append({'name':lec,'image':images[0]})
-        else:
-            leclist.append({'name':lec})
+            if lec in lexer.images.keys():
+                images=lexer.images[lec]
+            else:
+                images=None
+
+
+            if images:
+                leclist.append({'name':lec,'image':images[0]})
+            else:
+                leclist.append({'name':lec})
 
 
             
