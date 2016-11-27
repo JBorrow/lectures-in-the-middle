@@ -109,8 +109,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  middleman (>= 4.0.0)
-  middleman-search
+  middleman (= 4.1.10)
+  middleman-search (= 0.8.0)
   rails-assets-tether (>= 1.1.0)!
   tzinfo-data
   wdm (~> 0.1.0)

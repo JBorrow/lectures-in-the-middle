@@ -5,7 +5,7 @@ title: Interactive
 - current_page.data.subtitle = subtitle
 
 .sm-flex.flex-auto.mxn2.container
-  .flex-auto.p2.lg-col-9.actual-content
+  .flex-auto.p2.sm-col-9.actual-content
     =partial "interactive/_#{sec.url}.html"
 
     - previous_sec = ""
@@ -30,7 +30,7 @@ title: Interactive
       .btn.next
         = link_to "Next", "interactive/#{next_item.url}.html"
 
-  .flex-auto.p2.lg-col-3.sidebar
+  .flex-auto.p2.sm-col-3.sidebar
     %h2 Interactive 
     %ul.section-list.list-reset
       - data.interactive.each do |loop_sec|
