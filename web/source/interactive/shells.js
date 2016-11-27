@@ -83,13 +83,15 @@ function highlight(thisSVG, id, allTheRest, color='red', otherColor='black') {
 };
 
 function changeItems(thisSVG, numToChange, maxNum, subId, color='red', emptyColor='white') {
-	for (i = 1; i <= numToChange; i++) {
-		changeItem(thisSVG, i, color, subId);
-	};
+	for (i = 1; i <= maxNum; i++) {
+		if (i <= numToChange) {
+			changeItem(thisSVG, i, color, subId);
+		} else {
+			changeItem(thisSVG, i, emptyColor, subId);
+		}
+	}
 
-	for (i = numToChange+1; i <= maxNum; i++) { // to ensure using lower numbers displays correctly
-		changeItem(thisSVG, i, emptyColor, subId);
-	};
+	return;
 };
 
 function findWhere(n, structure) {
