@@ -29,3 +29,38 @@
 .active a {
   color: $navbg !important; // Sorry!
 }
+
+// MOBILE
+
+.nav-mob {
+  display:none;
+  color:$navtxt;
+  width:100%;
+  height:auto;
+}
+
+.nav-mob .head, .nav-mob .hamburger {
+  width:40%;
+  margin:0;
+}
+
+@media(max-width:$break) {
+  .nav-info {
+    display:none;
+	padding-left:0;
+	height:auto;
+	position:relative;
+  }
+
+  .nav-mob {
+	display:block;
+  }
+
+  .nav-top ul li {
+	display:block;
+  }
+
+  .nav-top:hover > ul {
+	display:block;
+  }
+}
