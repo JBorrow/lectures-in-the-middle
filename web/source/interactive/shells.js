@@ -1,6 +1,8 @@
 var svg;
 var numberOfProtons = 92;
 var numberOfNeutrons = 92;
+numProtons = 0;
+numNeutrons = 0;
 
 var protonStructure = {
 	p1s1 : 2,
@@ -94,6 +96,12 @@ function changeItems(thisSVG, numToChange, maxNum, subId, color='red', emptyColo
 	return;
 };
 
+function changeNums(numP, numN) {
+	// Sets the h1s that give the numbers
+	document.getElementById('numProtonsView').innerHTML=numP
+	document.getElementById('numNeutronsView').innerHTML=numN
+}
+
 function findWhere(n, structure) {
 	// Where is the final nucleon?
 	var soFar = 0;
@@ -128,6 +136,7 @@ $('#numProtons').on('input', function () {
 		// all ok
 	}
 	changeItems(protonSVG, numProtons, numberOfProtons, 'p');
+	changeNums(numProtons, numNeutrons);
 	maxLevel = findWhere(numProtons, protonStructure);
 	highlight(protonSVG, maxLevel, protonStructure);
 });
@@ -141,6 +150,7 @@ $('#numNeutrons').on('input', function () {
 		// all ok
 	}
 	changeItems(neutronSVG, numNeutrons, numberOfNeutrons, 'n', color='black');
+	changeNums(numProtons, numNeutrons);
 	maxLevel = findWhere(numNeutrons, neutronStructure);
 	highlight(neutronSVG, maxLevel, neutronStructure);
 });
