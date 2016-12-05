@@ -5,14 +5,14 @@
 
 			<form>
 				<div class='clearfix'>
-				<div class='sm-col-6 col py2 center'>
+				<div class='col-6 col py2 center'>
 					<label for="numProtons" class='h3'>Number of Protons</label>
 					<div class='py2'>
 						0 <input type='range' name='numProtons' id='numProtons' class='form-control' max=92 min=0> 92
 					</div>
 				</div>
 
-				<div class='sm-col-6 col p2 center'>
+				<div class='col-6 col p2 center'>
 					<label for="numNeutrons" class='h3'>Number of Neutrons</label>
 					<div class='py2'>
 						0 <input type='range' name='numNeutrons' id='numNeutrons' class='form-control' width='100%' max=92 min=0> 92
@@ -20,6 +20,16 @@
 				</div>
 				</div>
 			</form>
+
+			<div class='clearfix pb2'>
+				<div class='col-6 col center'>
+				<h1 id='numProtonsView' class='m0'></h1>
+				</div>
+
+				<div class='col-6 col center'>
+				<h1 id='numNeutronsView' class='m0'></h1>
+				</div>
+			</div>
 
 		<div class='container'>
 		<div class='clearfix'>
