@@ -12,3 +12,8 @@
   img: 'shells.jpg'
   information: 'Interactive exhibit that helps understanding of the shell model.'
   url: 'shells'
+
+- name: 'Tensor Products'
+  img: 'tensors.jpg'
+  information: 'Visualisation of Tensor Products and the effect of changing bases.'
+  url: 'changeOfBasis'

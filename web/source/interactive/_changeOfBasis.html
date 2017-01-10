@@ -1,0 +1,30 @@
+					<h1>Tensor Products</h1>
+				<p>The purpose of this demo is to teach you about how tensor products work, and how a change of basis allows you to see the change in states</p>
+				<h2>The Matrix</h2>
+
+				<p>We'll consider a rotation matrix,
+				$$
+					U = \begin{pmatrix}
+						\cos\theta + \frac{2i}{3}\sin\theta & \left(\frac{i-2}{3}\right)\sin\theta \\
+						\left(\frac{i+2}{3}\right)\sin\theta & \cos\theta - \frac{2i}{3}\sin\theta \\
+					\end{pmatrix}
+				$$
+				</p>
+
+				<p>We can represent this with a set of 4 argand diagrams - this is done below.</p>
+				<h3 id='theta' style='text-align:center'></h3>
+		<div id='circTest' style="margin:auto; width:150px;"></div>
+
+				<p>Now, if we take the tensor product of the above with itself, we get a bit of a mess (below):
+				$$
+					U \otimes U~,
+					$$</p>
+		<div id='unchanged' style="margin:auto; width:300px;"></div>
+				<p>However, when we change the basis, we recover a triplet and a singlet state:</p>
+		<div id='changed' style="margin:auto; width:300px;"></div>
+
+		<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.4/svg.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.4.1/math.min.js"></script>
+		<script src='changeOfBasis.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
