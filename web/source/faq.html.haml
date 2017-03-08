@@ -1,0 +1,18 @@
+---
+title: Notes
+---
+
+=partial "header"
+
+.p2.maincontent.container
+  %h1 FAQ
+
+  %p Frequently asked questions
+  - data.faq.each do |info|
+    %h2= info.question
+    %p=info.answer
+    %p
+      Tags:
+      - info.tags.each do |tag|
+        %span.tag=tag        
+
