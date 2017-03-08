@@ -6,3 +6,15 @@ tex/
 images/
 web/.sass-cache
 web/source/images
+bin/
+images/
+include/
+lib/
+lib64/
+lib64
+images
+tex/
+tex
+test/
+pip-selfcheck.json
+*~
