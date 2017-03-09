@@ -1,13 +1,18 @@
 ---
-title: Notes
+title: Frequently asked questions
 ---
 
 =partial "header"
 
 .p2.maincontent.container
-  %h1 FAQ
 
-  %p Frequently asked questions
+  - data.tags.each do |t|
+    %a.mytag{ href: t+'.html' , title: t }
+      =t
+  %h1 
+    FAQ (all)
+
+  %p 
   - data.faq.each do |info|
     %h2= info.question
     %p=info.answer

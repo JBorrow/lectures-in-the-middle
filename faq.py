@@ -1,4 +1,7 @@
 import yaml
+import configparser
+import sys
+import shutil
 
 config = configparser.ConfigParser()
 if len(sys.argv)<2:
@@ -17,3 +20,5 @@ for yy in y:
 with open(compile_dir+'/tags.yaml', 'w') as f:
     f.write(yaml.dump(list(tags),default_flow_style=False))
 
+#need to copy faq.yaml to compiled directory
+shutil.copyfile(faq_dir + '/faq.yaml', compile_dir +'/faq.yaml')
