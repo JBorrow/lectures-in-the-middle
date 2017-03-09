@@ -18,3 +18,7 @@ tex
 test/
 pip-selfcheck.json
 *~
+web/data/faq.yaml
+web/data/information.yaml
+web/data/lectures.yaml
+web/data/tags.yaml
