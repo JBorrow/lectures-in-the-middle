@@ -33,6 +33,19 @@ data.interactive.each do |info|
   proxy "/interactive/#{info.url}.html", "/interactive/template.html", :locals => {:info => data.interactive, :sec => info, :subtitle => info.name.to_s}, :subtitle => info.name.to_s
 end
 
+alltags = []
+data.faq.each do |f|
+  alltags=alltags | f.tags 
+  puts alltags
+end
+puts "alltags: #{alltags}"
+
+alltags.each do |tag|
+  print tag
+  proxy "/faq/#{tag}.html", "/faq/template.html", :locals => {:tag => tag, :tags => data.tags }, :subtitle => tag
+end
+
+
 ignore '/interactive/template.html.haml'
 ignore '/notes/template.html.haml'
 ignore '/lectures/lecture_template.html.haml'
