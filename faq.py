@@ -9,7 +9,7 @@ if len(sys.argv)<2:
 else:
     config.read(sys.argv[1])
 
-compile_dir = config.get('path','compile_dir')
+faq_dest = config.get('path','faq_dest')
 faq_dir = config.get('path','faq_dir')
 
 y=yaml.load(open(faq_dir+'/faq.yaml'))
@@ -17,8 +17,8 @@ tags=set()
 for yy in y:
     tags.update(yy['tags'])
 
-with open(compile_dir+'/tags.yaml', 'w') as f:
+with open(faq_dest+'/tags.yaml', 'w') as f:
     f.write(yaml.dump(list(tags),default_flow_style=False))
 
 #need to copy faq.yaml to compiled directory
-shutil.copyfile(faq_dir + '/faq.yaml', compile_dir +'/faq.yaml')
+shutil.copyfile(faq_dir + '/faq.yaml', faq_dest +'/faq.yaml')
