@@ -33,8 +33,8 @@ data.interactive.each do |info|
   proxy "/interactive/#{info.url}.html", "/interactive/template.html", :locals => {:info => data.interactive, :sec => info, :subtitle => info.name.to_s}, :subtitle => info.name.to_s
 end
 
-data.tags.each do |tag|
-  proxy "/faq/#{tag}.html", "/faq/template.html", :locals => {:tag => tag, :tags => data.tags }, :subtitle => tag
+data.tags.each do |tagname|
+  proxy "/faq/#{tagname}.html", "/faq/template.html", :locals => {:tags => data.tags ,:tagname=> tagname} , :subtitle => tagname
 end
 
 
