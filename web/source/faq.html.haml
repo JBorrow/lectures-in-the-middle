@@ -1,0 +1,23 @@
+---
+title: Frequently asked questions
+---
+
+=partial "header"
+
+.p2.maincontent.container
+
+  - data.tags.each do |t|
+    %a.mytag{ href: 'faq/'+t+'.html' , title: t }
+      =t
+  %h1 
+    FAQ (all)
+
+  %p 
+  - data.faq.each do |info|
+    %h2= info.question
+    %p=info.answer
+    %p
+      Tags:
+      - info.tags.each do |tag|
+        %span.tag=tag        
+

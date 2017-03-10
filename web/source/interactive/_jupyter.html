@@ -1,18 +1,18 @@
 <h1 id="jupyter-notebook-tutorial">Jupyter Notebook Tutorial</h1>
 <p>The jupyter notebook system is an incredibly useful bit of software, but can be intimidating at first glance.</p>
 <p>Once you know the basics, though, it becomes a powerful tool for learning and data analysis.</p>
-<p>The jupyter notebook is essentially just a different way to use python than you have been using already. It is based on 'iPython' (interactive python) which similar to running python in your command line/terminal but with a few more features. The notebook takes this to another level, providing ways to include inline text and equations as well as output your figures to within the notebook for easy sharing.</p>
+<p>The jupyter notebook is essentially just a different way to use python than you have been using already. It is based on 'iPython' (interactive python) which is similar to running python in your command line/terminal but with a few more features. The notebook takes this to another level, providing ways to include inline text and equations as well as output your figures to within the notebook for easy sharing.</p>
 <p>Here, we will use the jupyter notebook as a way to contain a project's code and figures that will hopefully give you deeper insights into the Nuclear and Particle Physics material.</p>
 <h2 id="getting-set-up">Getting Set Up</h2>
-<p>To get set up on the system, go to <a href="http://dmaitre.dur.scotgrid.ac.uk/">http://dmaitre.dur.scotgrid.ac.uk/newuser/</a>. You will be able to log in with your CIS username and password.</p>
-<p>There will be a notebook there called jupyter-tutorial. That will take you through the basics - if you require more assistance you can consult the guidance below or ask in a workshop.</p>
-<p><strong>To use notebooks, please make a copy of them by ticking the box next to their name and clicking &quot;duplicate&quot;. You will then be able to edit the notebook.</strong></p>
+<p>To get started on the system, go to <a href="https://dmaitre.phyip3.dur.ac.uk/">https://dmaitre.phyip3.dur.ac.uk/</a>. You will be able to log in with your CIS username and password. The first start might be a bit long but future login should not take too long.</p>
+<p>Once logged in you will be presented with a list of notebooks. There will be a notebook there called jupyter-tutorial. Select it and go through the steps presented there, it will take you through the basics - if you require more assistance you can consult the guidance below or ask in a workshop.</p>
+<p>You can edit the notebooks and create new ones. The original notebooks you found before you edited them are saved in the "oriiginals" directory </p>
 <h2 id="cells">Cells</h2>
 <h3 id="what-is-a-cell">What is a Cell?</h3>
 <p>A cell in the jupyter notebook is the place where we input text and code. Each cell can talk to each other - so if you output some data to an object, say an array, in one cell, then this data can be accessed from all the other cells.</p>
 <p>This is a very useful feature as it means that you can separate your code into logical blocks and intersperse it with text explaining what the code does - and even include equations! You will see how this works later.</p>
 <h3 id="running-code">Running Code</h3>
-<p>After including python code in a cell, simply press shift+enter. This will cause your code to be run by the python kernel, and if it outputs any data then this will be displayed below the cell as text. Alternatively you can press the 'play' button in the toolbar - this will also run the cell.</p>
+<p>After including python code in a cell, simply press shift+enter. This will cause your code to be run by the python kernel, and display the output of the last command in the cell. Alternatively you can press the 'play' button in the toolbar - this will also run the cell.</p>
 <p>If you would like to insert a cell below the one you are currently working on after running the code, press alt+enter.</p>
 <p>You can run all the cells in your notebook by using the 'Cell' option in the toolbar.</p>
 <h3 id="adding-cells">Adding Cells</h3>
@@ -28,12 +28,6 @@
 s^o_m^e mat\hbar
 $$</code></pre>
 <p>As you can see, this makes the notebook a powerful tool for research.</p>
-<h2 id="magic-commands">Magic Commands</h2>
-<p>Magic commands, at first, can look a little scary. They are commands that start with a '%' sign, such as</p>
-<pre><code>%pylab</code></pre>
-<p>These bring some odd piece of functionality into the notebook. <code>%pylab</code> gives access to all of the numpy functions without having to prefix them, so instead of typing numpy.sin(), one would just type sin().</p>
-<p>Another common one to see is</p>
-<pre><code>%matplotlib inline</code></pre>
-<p>what this does is allow all of the figures generated in your notebook to be displayed in the notebook instead of in a pop-out window like you are used to with shell python. For more information on magic commands, you can check out <a href="https://ipython.org/ipython-doc/3/interactive/magics.html">this page</a>.</p>
+
 <h2 id="installing-jupyter-notebooks-on-your-own-system">Installing jupyter notebooks on your own system</h2>
 <p>You can find information on how to install the jupyter notebook on your own system with their documentation at <a href="https://jupyter.readthedocs.io/en/latest/">readthedocs</a>. If you are having any issues with this, then bring it up in a workshop. You should not need to install the notebook on your own system to use it, though, as that is all handled by the online system.</p>
