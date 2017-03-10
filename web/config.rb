@@ -71,7 +71,7 @@ helpers do
 end
 
 activate :search do |search|
-  search.resources = ['notes/', 'extra/']
+  search.resources = ['notes/', 'extra/','faq/']
 
   search.fields = {
 	title: {boost: 100, store: true, required: true},
