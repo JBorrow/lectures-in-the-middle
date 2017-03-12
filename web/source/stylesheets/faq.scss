@@ -1,2 +1,7 @@
-.mytag { border-style: solid;  }
-
+.mytag {
+  background-color:$navbg;
+  border-radius:2px;
+  margin-right:0.25em;
+  border:1px solid $navbg;
+  padding:1em;
+}
