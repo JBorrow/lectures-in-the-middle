@@ -7,7 +7,7 @@ title: Frequently asked questions
 .p2.maincontent.container
 
   - get_tags().each do |t|
-    %a.mytag{ href: 'faq/'+t+'.html' , title: t }
+    %a.mytag{ href: "faq/#{CGI::escape(t)}.html" , title: t }
       =t
   %h1
     FAQ (all)

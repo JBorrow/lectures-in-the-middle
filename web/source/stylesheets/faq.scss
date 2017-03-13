@@ -4,4 +4,12 @@
   margin-right:0.25em;
   border:1px solid $navbg;
   padding:1em;
+  color:$navtxt;
+  display:inline-block;
+  margin-bottom:0.5em;
+}
+
+.mytag.active {
+  background-color:$navtxt;
+  color:$navbg;
 }

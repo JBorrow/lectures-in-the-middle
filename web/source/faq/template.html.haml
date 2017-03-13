@@ -6,21 +6,19 @@ title: Frequently asked questions
 
 .p2.maincontent.container
 
-  - data.tags.each do |t|
-    %a.mytag{ href: t+'.html' , title: t }
-      =t
+  - get_tags().each do |t|
+    - if (tagname == t)
+      %a.mytag.active{ href: "#{CGI::escape(t)}.html" , title: t }
+        =t
+    - else
+      %a.mytag{ href: "#{CGI::escape(t)}.html" , title: t }
+        =t
   %h1
     FAQ (#{tagname})
 
-  %p 
+  %p
   - data.faq.each do |info|
     - if info.tags.include?(tagname)
       %h2= info.question
       %p=info.answer
       %p
-        Tags:
-        - info.tags.each do |t|
-          %a.mytag{ href: t+'.html' , title: t }
-            =t
-
-
