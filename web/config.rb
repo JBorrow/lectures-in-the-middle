@@ -14,6 +14,24 @@ page '/*.txt', layout: false
 # With alternative layout
 # page "/path/to/file.html", layout: :otherlayout
 
+# Helper function for the tags
+
+def get_tags()
+  # Gets the tags for the FAQ sections
+  tags = []
+
+  data.faq.each do |faq_item|
+    these_tags = faq_item.tags
+
+    these_tags.each do |this_tag|
+      if !(tags.include? this_tag)
+        tags.insert(this_tag)
+      end
+    end
+  end
+
+  return tags
+end
 
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", locals: {
@@ -33,7 +51,7 @@ data.interactive.each do |info|
   proxy "/interactive/#{info.url}.html", "/interactive/template.html", :locals => {:info => data.interactive, :sec => info, :subtitle => info.name.to_s}, :subtitle => info.name.to_s
 end
 
-data.tags.each do |tagname|
+get_tags().each do |tagname|
   proxy "/faq/#{tagname}.html", "/faq/template.html", :locals => {:tags => data.tags ,:tagname=> tagname} , :subtitle => tagname
 end
 
@@ -67,6 +85,21 @@ helpers do
       clss = "inactive"
     end
     return "<li class='#{clss}'>" + link_to(link_text, url, options) + "</li>"
+  end
+
+  def get_tags()
+    # Gets the tags for the FAQ sections
+    tags = []
+
+    data.faq.each do |faq_item|
+      faq_item.tags.each do |this_tag|
+        if !(tags.include? this_tag)
+          tags.push(this_tag)
+        end
+      end
+    end
+
+    return tags
   end
 end
 

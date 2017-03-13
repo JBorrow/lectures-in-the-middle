@@ -6,18 +6,17 @@ title: Frequently asked questions
 
 .p2.maincontent.container
 
-  - data.tags.each do |t|
+  - get_tags().each do |t|
     %a.mytag{ href: 'faq/'+t+'.html' , title: t }
       =t
-  %h1 
+  %h1
     FAQ (all)
 
-  %p 
+  %p
   - data.faq.each do |info|
     %h2= info.question
     %p=info.answer
     %p
       Tags:
       - info.tags.each do |tag|
-        %span.tag=tag        
-
+        %span.tag=tag
