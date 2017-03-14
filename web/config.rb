@@ -90,7 +90,7 @@ helpers do
       end
     end
 
-    return tags
+    return tags.sort()
   end
 end
 
