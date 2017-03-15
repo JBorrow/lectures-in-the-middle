@@ -393,6 +393,7 @@ for img in os.listdir(image_dir):
     shutil.copyfile(image_dir + img, op_img_dir + img)
 
 faq_dir = config.get('path','faq_dir')
+faq_dest = config.get('path', 'faq_dest')
 shutil.copyfile(faq_dir + '/faq.yaml', faq_dest +'/faq.yaml')
 
     
