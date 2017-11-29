@@ -1,33 +1,26 @@
-<h1 id="jupyter-notebook-tutorial">Jupyter Notebook Tutorial</h1>
-<p>The jupyter notebook system is an incredibly useful bit of software, but can be intimidating at first glance.</p>
-<p>Once you know the basics, though, it becomes a powerful tool for learning and data analysis.</p>
-<p>The jupyter notebook is essentially just a different way to use python than you have been using already. It is based on 'iPython' (interactive python) which is similar to running python in your command line/terminal but with a few more features. The notebook takes this to another level, providing ways to include inline text and equations as well as output your figures to within the notebook for easy sharing.</p>
-<p>Here, we will use the jupyter notebook as a way to contain a project's code and figures that will hopefully give you deeper insights into the Nuclear and Particle Physics material.</p>
-<h2 id="getting-set-up">Getting Set Up</h2>
-<p>To get started on the system, go to <a href="https://dmaitre.phyip3.dur.ac.uk/">https://dmaitre.phyip3.dur.ac.uk/</a>. You will be able to log in with your CIS username and password. The first start might be a bit long but future login should not take too long.</p>
-<p>Once logged in you will be presented with a list of notebooks. There will be a notebook there called jupyter-tutorial. Select it and go through the steps presented there, it will take you through the basics - if you require more assistance you can consult the guidance below or ask in a workshop.</p>
-<p>You can edit the notebooks and create new ones. The original notebooks you found before you edited them are saved in the "oriiginals" directory </p>
-<h2 id="cells">Cells</h2>
-<h3 id="what-is-a-cell">What is a Cell?</h3>
-<p>A cell in the jupyter notebook is the place where we input text and code. Each cell can talk to each other - so if you output some data to an object, say an array, in one cell, then this data can be accessed from all the other cells.</p>
-<p>This is a very useful feature as it means that you can separate your code into logical blocks and intersperse it with text explaining what the code does - and even include equations! You will see how this works later.</p>
-<h3 id="running-code">Running Code</h3>
-<p>After including python code in a cell, simply press shift+enter. This will cause your code to be run by the python kernel, and display the output of the last command in the cell. Alternatively you can press the 'play' button in the toolbar - this will also run the cell.</p>
-<p>If you would like to insert a cell below the one you are currently working on after running the code, press alt+enter.</p>
-<p>You can run all the cells in your notebook by using the 'Cell' option in the toolbar.</p>
-<h3 id="adding-cells">Adding Cells</h3>
-<p>It is fairly straightforward to add a cell. You can either use the 'plus' sign in the toolbar which will insert a cell below the one that you are currently editing, or use the 'Insert' option in the toolbar.</p>
-<h3 id="removing-cells">Removing Cells</h3>
-<p>To remove cells, select the cell you would like to remove and press Edit-&gt;Delete Cell in the toolbar.</p>
-<h3 id="changing-cell-type">Changing Cell Type</h3>
-<p>As we mentioned above, cells are not just for python code. They can also include text and mathematics! You can even run code from other lanagugaes (such as <em>R</em>), but that is, as they say, &quot;well beyond the scope of this course&quot;.</p>
-<p>To change the type of a cell, select it, and then either use the drop down box in the toolbar (next to the circular arrow) to change the cell type or use Cell-&gt;Cell Type in the toolbar.</p>
-<p>When you 'run' the cell in markdown format, this will compile the markdown to rich text and it should look very pretty. For more information on markdown, see <a href="https://daringfireball.net/projects/markdown/syntax">here</a>.</p>
-<p>You can even include LaTeX math by enclosing it in double dollar signs, like so</p>
-<pre><code>$$
-s^o_m^e mat\hbar
-$$</code></pre>
-<p>As you can see, this makes the notebook a powerful tool for research.</p>
-
-<h2 id="installing-jupyter-notebooks-on-your-own-system">Installing jupyter notebooks on your own system</h2>
-<p>You can find information on how to install the jupyter notebook on your own system with their documentation at <a href="https://jupyter.readthedocs.io/en/latest/">readthedocs</a>. If you are having any issues with this, then bring it up in a workshop. You should not need to install the notebook on your own system to use it, though, as that is all handled by the online system.</p>
+<h1 id="notebook-server">Notebook server</h1>
+<p>To access the notebook exercises go to <a href="https://dmaitre.phyip3.dur.ac.uk/NPP/notebooks/" class="uri">https://dmaitre.phyip3.dur.ac.uk/NPP/notebooks/</a>. You should be greeted by a login screen similar to the picture below.</p>
+<p><img src="login.png" alt="image" width="90%"/></p>
+<p>Log in with your CIS username and password. Once logged in you should see a list of your files (empty the first time you log in).</p>
+<p><img src="loggedin.png" alt="image" width="90%" /></p>
+<p>To access the python exercises, go to the “assignments” tab. You should get a list of assignments that are ready for you to download.</p>
+<p><img src="assignments.png" alt="image" width="90%" /></p>
+<p>To download an assignment, click on the “fetch” button, the assignment will move to the “Downloaded assignments” section. It will also be in a folder in your “files” view after you log in.</p>
+<p>Each assignment can contain one or more notebooks, you can see the notebooks for each assignment by clicking on the assignment name in the “Downoaded assignments” section, or navigating to the directory named after the assignment.</p>
+<p><img src="assignmentlist.png" alt="image" width="90%" /></p>
+<p>By clicking on a notebook in the list this notebook will open for you to edit.</p>
+<p><img src="notebook.png" alt="image"  width="90%" /></p>
+<p>The notebooks come with some exercises and test to check that your implmentation is correct. The “validate” button in the assignment section will run the notebook and check that all tests pass. Once you are satisfied with your notebook you can submit it to be automatically graded. These “marks” are not summative but can help track your progress. If you submit your work it will be possible to offer some feedback on it. The submission is completely optional.</p>
+<h2 id="working-with-the-notebook">Working with the notebook</h2>
+<p>Notebooks are composed of input, output and text cells. The input cells have “In[ ]” text to their left before they are evaluated. After evaluation a number appears between the bracket. If you see “In[23]” it means that this is the 23th input cell to be evaluated in the session. Similarily output cells have an “Out[]” to their left and the number inside the brackets displays which input cell this is the output of.</p>
+<p><img src="n1.png" alt="image"  width="90%"/></p>
+<p>The content of the input cells is python code. You can edit the cells by clicking in them or create new cells using the “+” button from the toolbar. To execute the content of the active input cell, press <span>shift+enter</span>. Input cells currently evaluating have a star in the <span>In[]</span> bracket. While a cell is evaluating you can queue more cells for evaluation by pressing <span>shift+enter</span> in them. You cn interupt the evaluation using the “Interrupt” entry in the “Kernel” menu.</p>
+<p>Your assignment will usually provide most of the boiler plate code and you will be asked to fill in the intersting parts. Look for “YOUR CODE HERE” in the code to find the places where you are expected to provide some code.</p>
+<p><img src="codeToFill.png" alt="image"  width="90%"/></p>
+<p>Most parts of the assignment will be followed by testing code that help you check that your code works as expected. The test will take the form of <span>assert</span> statements.</p>
+<p><img src="assert.png" alt="image"  width="90%"/></p>
+<p>The tool bar at the top of the notebook contains a “validate” button that runs the entire notebook and allows to test that all test pass before you submit your work (if you decide to do so).</p>
+<h2 id="acceptable-usage">Acceptable usage</h2>
+<p>The university’s IT policy (<a href="https://www.dur.ac.uk/cis/policy/regulations/" class="uri">https://www.dur.ac.uk/cis/policy/regulations/</a>) apply on the server. The notebook server is to be used for the NPP coursework, please do not use it for any other purposes. If you want to use it for other physics courses please ask me (daniel.maitre@durham.ac.uk).</p>
+<h2 id="privacy-and-backups">Privacy and backups</h2>
+<p>All files saved on the server can be viewed by the server administrator, so please do not do put anything confidential on the server. I will try my best to prevent the loss of saved notebooks but I cannot offer a 100% guarantee, so if you store some important work on the server, please make a copy for your safe-keeping (there is a “download as” option in the “File” menu of the notebook).</p>
