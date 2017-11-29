@@ -116,16 +116,15 @@ function findWhere(n, structure) {
 };
 
 
-//initially, we must wait for the SVG to load NOT the document.
-$('#neutrons').on('load', function () {
-	$('#protons').on('load', function () {
-		protonSVG = getSVGById('protons');
-		neutronSVG = getSVGById('neutrons');
-		changeItems(protonSVG, 0, numberOfProtons, 'p');
-		changeItems(neutronSVG, 0, numberOfNeutrons, 'n');
-		highlight(protonSVG, 'none', protonStructure);
-		highlight(neutronSVG, 'none', neutronStructure);
-	});
+// Attempting to use the .on('load'...) for each individual element does not work -
+// I'm unsure why but this should be a quick fix.
+$(window).on('load', function () {
+        neutronSVG = getSVGById('neutrons');
+        changeItems(neutronSVG, 0, numberOfNeutrons, 'n');
+        highlight(neutronSVG, 'none', neutronStructure);
+        protonSVG = getSVGById('protons');
+        changeItems(protonSVG, 0, numberOfProtons, 'p');
+        highlight(protonSVG, 'none', protonStructure);
 });
 
 $('#numProtons').on('input', function () {
