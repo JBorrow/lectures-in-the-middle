@@ -214,10 +214,10 @@ def process(fileName):
                         InputText)
     #InputText = InputText.replace("\ce", "")
 
-    PreProcessed = ltmd.PreProcess(InputText, img_prepend="/")
-    Pandocced = ltmd.run_pandoc(PreProcessed.parsed_text, extra=["--mathjax"])
-    PostProcessed = ltmd.PostProcess(Pandocced, PreProcessed.parsed_data)
-    OutputText = PostProcessed.parsed_text
+    PreProcessed = ltmd.PreProcess(InputText, ImgPrepend="/")
+    Pandocced = ltmd.RunPandoc(PreProcessed.ParsedText, extra=["--mathjax"])
+    PostProcessed = ltmd.PostProcess(Pandocced, PreProcessed.ParsedData)
+    OutputText = PostProcessed.ParsedText
 
     # add a last line marker to terminate the opened sections and lectures
     
